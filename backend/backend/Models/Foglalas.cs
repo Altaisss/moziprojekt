@@ -4,10 +4,11 @@ namespace backend.Models
 {
     public class Foglalas
     {
+        [Key]
         public int Id { get; set; }
         public int FelhasznaloId { get; set; }
         public Felhasznalo Felhasznalo { get; set; } = null!;
-        public ICollection<Foglalthely> Foglalt = new List<Foglalthely>();
+        public ICollection<Foglalthely> Foglalthely = new List<Foglalthely>();
 
     }
 }

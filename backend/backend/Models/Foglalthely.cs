@@ -4,6 +4,7 @@ namespace backend.Models
 {
     public class Foglalthely
     {
+        [Key]
         public int Id { get; set; }
         public int SzekId { get; set; }
         public Szek Szek { get; set; } = null!;
