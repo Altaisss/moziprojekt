@@ -1,9 +1,7 @@
-using backend.Context;
 using backend.DTOs;
-using backend.Models;
+using backend.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
@@ -12,104 +10,45 @@ namespace backend.Controllers
     [Route("api/[controller]")]
     public class FilmController : ControllerBase
     {
-        private readonly MoziDbContext _context;
+        private readonly IFilmService _filmService;
 
-        public FilmController(MoziDbContext context)
+        public FilmController(IFilmService filmService)
         {
-            _context = context;
+            _filmService = filmService;
         }
 
-        // Fix #7: guests can browse films without logging in
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FilmResponse>>> GetAll()
-        {
-            var filmek = await _context.Filmek
-                .Select(f => new FilmResponse
-                {
-                    Id = f.Id,
-                    Cim = f.Cim,
-                    Rendezo = f.Rendezo,
-                    Hossz = f.Hossz,
-                    Leiras = f.Leiras
-                })
-                .ToListAsync();
+        public async Task<IActionResult> GetAll()
+            => Ok(await _filmService.GetAllAsync());
 
-            return Ok(filmek);
-        }
-
-        // Fix #7: guests can view a single film too
         [AllowAnonymous]
         [HttpGet("{id}")]
-        public async Task<ActionResult<FilmResponse>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var film = await _context.Filmek.FindAsync(id);
-
-            if (film == null)
-                return NotFound();
-
-            return Ok(new FilmResponse
-            {
-                Id = film.Id,
-                Cim = film.Cim,
-                Rendezo = film.Rendezo,
-                Hossz = film.Hossz,
-                Leiras = film.Leiras
-            });
+            var result = await _filmService.GetByIdAsync(id);
+            return result == null ? NotFound() : Ok(result);
         }
 
         [HttpPost]
-        public async Task<ActionResult<FilmResponse>> Create([FromBody] FilmRequest dto)
+        public async Task<IActionResult> Create([FromBody] FilmRequest dto)
         {
-            var film = new Film
-            {
-                Cim = dto.Cim,
-                Rendezo = dto.Rendezo,
-                Hossz = dto.Hossz,
-                Leiras = dto.Leiras
-            };
-
-            _context.Filmek.Add(film);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetById), new { id = film.Id }, new FilmResponse
-            {
-                Id = film.Id,
-                Cim = film.Cim,
-                Rendezo = film.Rendezo,
-                Hossz = film.Hossz,
-                Leiras = film.Leiras
-            });
+            var result = await _filmService.CreateAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] FilmRequest dto)
         {
-            var film = await _context.Filmek.FindAsync(id);
-
-            if (film == null)
-                return NotFound();
-
-            film.Cim = dto.Cim;
-            film.Rendezo = dto.Rendezo;
-            film.Hossz = dto.Hossz;
-            film.Leiras = dto.Leiras;
-
-            await _context.SaveChangesAsync();
-            return NoContent();
+            var success = await _filmService.UpdateAsync(id, dto);
+            return success ? NoContent() : NotFound();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var film = await _context.Filmek.FindAsync(id);
-
-            if (film == null)
-                return NotFound();
-
-            _context.Filmek.Remove(film);
-            await _context.SaveChangesAsync();
-            return NoContent();
+            var success = await _filmService.DeleteAsync(id);
+            return success ? NoContent() : NotFound();
         }
     }
 }

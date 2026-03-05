@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "backend",
-    "version": "1.0"
+    "title": "Mozi API",
+    "version": "v1"
   },
   "paths": {
     "/api/Auth/register": {
@@ -72,61 +72,6 @@
         "tags": [
           "Felhasznalo"
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FelhasznaloResponse"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FelhasznaloResponse"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FelhasznaloResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Felhasznalo"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelhasznaloRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelhasznaloRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelhasznaloRequest"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK",
@@ -259,33 +204,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FilmResponse"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FilmResponse"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FilmResponse"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -314,24 +233,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FilmResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FilmResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FilmResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -354,24 +256,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FilmResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FilmResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FilmResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -444,33 +329,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FoglalasResponse"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FoglalasResponse"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FoglalasResponse"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -499,24 +358,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglalasResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglalasResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglalasResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -539,24 +381,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglalasResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglalasResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglalasResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -629,33 +454,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FoglaltHelyResponse"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FoglaltHelyResponse"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FoglaltHelyResponse"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -684,24 +483,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglaltHelyResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglaltHelyResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglaltHelyResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -724,24 +506,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglaltHelyResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglaltHelyResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FoglaltHelyResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -814,33 +579,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SzekResponse"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SzekResponse"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SzekResponse"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -869,24 +608,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SzekResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SzekResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SzekResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -909,24 +631,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SzekResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SzekResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SzekResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -999,33 +704,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TeremResponse"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TeremResponse"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TeremResponse"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -1054,24 +733,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TeremResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TeremResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TeremResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -1094,24 +756,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TeremResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TeremResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TeremResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -1184,33 +829,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/VetitesResponse"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/VetitesResponse"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/VetitesResponse"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -1239,24 +858,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/VetitesResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VetitesResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VetitesResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -1279,24 +881,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/VetitesResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VetitesResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VetitesResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -1405,10 +990,6 @@
           "email": {
             "type": "string",
             "nullable": true
-          },
-          "jelszo": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1441,52 +1022,12 @@
         },
         "additionalProperties": false
       },
-      "FilmResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "cim": {
-            "type": "string",
-            "nullable": true
-          },
-          "rendezo": {
-            "type": "string",
-            "nullable": true
-          },
-          "hossz": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "leiras": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "FoglalasRequest": {
         "required": [
           "felhasznaloId"
         ],
         "type": "object",
         "properties": {
-          "felhasznaloId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FoglalasResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "felhasznaloId": {
             "type": "integer",
             "format": "int32"
@@ -1502,28 +1043,6 @@
         ],
         "type": "object",
         "properties": {
-          "szekId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "foglalasId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "vetitesId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FoglaltHelyResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "szekId": {
             "type": "integer",
             "format": "int32"
@@ -1585,31 +1104,6 @@
         },
         "additionalProperties": false
       },
-      "SzekResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "sor": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "szam": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "oldal": {
-            "type": "string"
-          },
-          "teremId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
       "TeremRequest": {
         "required": [
           "teremNev"
@@ -1619,20 +1113,6 @@
           "teremNev": {
             "minLength": 1,
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TeremResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "teremNev": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1672,41 +1152,20 @@
           }
         },
         "additionalProperties": false
-      },
-      "VetitesResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "idopont": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "teremId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "filmId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "jegyAr": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nyelv": {
-            "type": "string",
-            "nullable": true
-          },
-          "vetitesTipus": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter your JWT token. Example: eyJhbGci...",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

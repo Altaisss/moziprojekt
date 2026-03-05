@@ -1,9 +1,7 @@
-using backend.Context;
 using backend.DTOs;
-using backend.Models;
+using backend.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
@@ -12,115 +10,45 @@ namespace backend.Controllers
     [Route("api/[controller]")]
     public class SzekController : ControllerBase
     {
-        private readonly MoziDbContext _context;
+        private readonly ISzekService _szekService;
 
-        public SzekController(MoziDbContext context)
+        public SzekController(ISzekService szekService)
         {
-            _context = context;
+            _szekService = szekService;
         }
 
-        // GET api/szek
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SzekResponse>>> GetAll()
-        {
-            var szekek = await _context.Szekek
-                .Select(s => new SzekResponse
-                {
-                    Id = s.Id,
-                    Sor = s.Sor,
-                    Szam = s.Szam,
-                    Oldal = s.Oldal,
-                    TeremId = s.TeremId
-                })
-                .ToListAsync();
+        public async Task<IActionResult> GetAll()
+            => Ok(await _szekService.GetAllAsync());
 
-            return Ok(szekek);
-        }
-
-        // GET api/szek/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<SzekResponse>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var szek = await _context.Szekek.FindAsync(id);
-
-            if (szek == null)
-                return NotFound();
-
-            return Ok(new SzekResponse
-            {
-                Id = szek.Id,
-                Sor = szek.Sor,
-                Szam = szek.Szam,
-                Oldal = szek.Oldal,
-                TeremId = szek.TeremId
-            });
+            var result = await _szekService.GetByIdAsync(id);
+            return result == null ? NotFound() : Ok(result);
         }
 
-        // POST api/szek
         [HttpPost]
-        public async Task<ActionResult<SzekResponse>> Create([FromBody] SzekRequest dto)
+        public async Task<IActionResult> Create([FromBody] SzekRequest dto)
         {
-            var teremExists = await _context.Termek.AnyAsync(t => t.Id == dto.TeremId);
-
-            if (!teremExists)
-                return BadRequest("A megadott terem nem létezik.");
-
-            var szek = new Szek
-            {
-                Sor = dto.Sor,
-                Szam = dto.Szam,
-                Oldal = dto.Oldal,
-                TeremId = dto.TeremId
-            };
-
-            _context.Szekek.Add(szek);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetById), new { id = szek.Id }, new SzekResponse
-            {
-                Id = szek.Id,
-                Sor = szek.Sor,
-                Szam = szek.Szam,
-                Oldal = szek.Oldal,
-                TeremId = szek.TeremId
-            });
+            var (success, error, result) = await _szekService.CreateAsync(dto);
+            if (!success) return BadRequest(error);
+            return CreatedAtAction(nameof(GetById), new { id = result!.Id }, result);
         }
 
-        // PUT api/szek/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] SzekRequest dto)
         {
-            var szek = await _context.Szekek.FindAsync(id);
-
-            if (szek == null)
-                return NotFound();
-
-            var teremExists = await _context.Termek.AnyAsync(t => t.Id == dto.TeremId);
-
-            if (!teremExists)
-                return BadRequest("A megadott terem nem létezik.");
-
-            szek.Sor = dto.Sor;
-            szek.Szam = dto.Szam;
-            szek.Oldal = dto.Oldal;
-            szek.TeremId = dto.TeremId;
-
-            await _context.SaveChangesAsync();
-            return NoContent();
+            var (success, error) = await _szekService.UpdateAsync(id, dto);
+            if (error != null) return BadRequest(error);
+            return success ? NoContent() : NotFound();
         }
 
-        // DELETE api/szek/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var szek = await _context.Szekek.FindAsync(id);
-
-            if (szek == null)
-                return NotFound();
-
-            _context.Szekek.Remove(szek);
-            await _context.SaveChangesAsync();
-            return NoContent();
+            var success = await _szekService.DeleteAsync(id);
+            return success ? NoContent() : NotFound();
         }
     }
 }
