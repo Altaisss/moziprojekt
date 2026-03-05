@@ -19,7 +19,8 @@ namespace backend.Controllers
             _context = context;
         }
 
-        // GET api/vetites
+        // Fix #7: guests can browse screenings without logging in
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VetitesResponse>>> GetAll()
         {
@@ -39,7 +40,8 @@ namespace backend.Controllers
             return Ok(vetitesek);
         }
 
-        // GET api/vetites/{id}
+        // Fix #7: guests can view a single screening too
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<VetitesResponse>> GetById(int id)
         {
@@ -60,7 +62,6 @@ namespace backend.Controllers
             });
         }
 
-        // POST api/vetites
         [HttpPost]
         public async Task<ActionResult<VetitesResponse>> Create([FromBody] VetitesRequest dto)
         {
@@ -95,7 +96,6 @@ namespace backend.Controllers
             });
         }
 
-        // PUT api/vetites/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] VetitesRequest dto)
         {
@@ -121,7 +121,6 @@ namespace backend.Controllers
             return NoContent();
         }
 
-        // DELETE api/vetites/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

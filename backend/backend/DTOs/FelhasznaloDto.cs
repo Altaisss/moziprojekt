@@ -22,6 +22,6 @@ namespace backend.DTOs
         public int Id { get; set; }
         public string Nev { get; set; } = null!;
         public string Email { get; set; } = null!;
-        public string Jelszo { get; set; } = null!;
+        // Fix #2: Jelszo removed — never expose passwords (even hashed) in responses
     }
 }

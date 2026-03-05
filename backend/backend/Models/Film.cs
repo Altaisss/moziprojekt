@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace backend.Models
 {
@@ -14,8 +14,6 @@ namespace backend.Models
         [Required]
         [StringLength(200)]
         public string Rendezo { get; set; } = null!;
-        public ICollection<Vetites> Vetitesek = new List<Vetites>();
-        
-
+        public ICollection<Vetites> Vetitesek { get; set; } = new List<Vetites>(); // Fix #6: field → property
     }
 }

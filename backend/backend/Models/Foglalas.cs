@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace backend.Models
 {
@@ -8,7 +8,6 @@ namespace backend.Models
         public int Id { get; set; }
         public int FelhasznaloId { get; set; }
         public Felhasznalo Felhasznalo { get; set; } = null!;
-        public ICollection<Foglalthely> Foglalthely = new List<Foglalthely>();
-
+        public ICollection<Foglalthely> Foglalthely { get; set; } = new List<Foglalthely>(); // Fix #6: field → property
     }
 }

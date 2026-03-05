@@ -1,16 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace backend.Models
 {
     public class Felhasznalo
     {
         [Key]
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public string Nev { get; set; } = null!;
         [StringLength(200)]
         public string Email { get; set; } = null!;
         [StringLength(256)]
         public string Jelszo { get; set; } = null!;
-        public ICollection<Foglalas> Foglalasok = new List<Foglalas>();
+        public ICollection<Foglalas> Foglalasok { get; set; } = new List<Foglalas>(); // Fix #6: field → property
     }
 }

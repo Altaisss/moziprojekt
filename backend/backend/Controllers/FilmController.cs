@@ -19,7 +19,8 @@ namespace backend.Controllers
             _context = context;
         }
 
-        // GET api/film
+        // Fix #7: guests can browse films without logging in
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FilmResponse>>> GetAll()
         {
@@ -37,7 +38,8 @@ namespace backend.Controllers
             return Ok(filmek);
         }
 
-        // GET api/film/{id}
+        // Fix #7: guests can view a single film too
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<FilmResponse>> GetById(int id)
         {
@@ -56,7 +58,6 @@ namespace backend.Controllers
             });
         }
 
-        // POST api/film
         [HttpPost]
         public async Task<ActionResult<FilmResponse>> Create([FromBody] FilmRequest dto)
         {
@@ -81,7 +82,6 @@ namespace backend.Controllers
             });
         }
 
-        // PUT api/film/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] FilmRequest dto)
         {
@@ -99,7 +99,6 @@ namespace backend.Controllers
             return NoContent();
         }
 
-        // DELETE api/film/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

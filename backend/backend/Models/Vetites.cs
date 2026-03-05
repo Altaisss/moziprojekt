@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace backend.Models
 {
@@ -8,15 +8,14 @@ namespace backend.Models
         public int Id { get; set; }
         public DateTime Idopont { get; set; }
         public int TeremId { get; set; }
-        public Terem Terem { get; set; }    = null!;
+        public Terem Terem { get; set; } = null!;
         public int FilmId { get; set; }
         public Film Film { get; set; } = null!;
 
-        public int JegyAr { get; set; }         
-        public string? Nyelv { get; set; }          
-        public string? VetitesTipus { get; set; }   
+        public int JegyAr { get; set; }
+        public string? Nyelv { get; set; }
+        public string? VetitesTipus { get; set; }
 
-        public ICollection<Foglalthely> Foglalthely = new List<Foglalthely>();
-
+        public ICollection<Foglalthely> Foglalthely { get; set; } = new List<Foglalthely>(); // Fix #6: field → property
     }
 }

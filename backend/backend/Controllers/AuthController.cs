@@ -34,7 +34,7 @@ namespace backend.Controllers
             {
                 Nev = dto.Nev,
                 Email = dto.Email,
-                Jelszo = dto.Jelszo // Hash this in production!
+                Jelszo = BCrypt.Net.BCrypt.HashPassword(dto.Jelszo) // Fix #1: hash the password
             };
 
             _context.Felhasznalok.Add(felhasznalo);
@@ -47,10 +47,11 @@ namespace backend.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest dto)
         {
+            // Fix #1: look up by email only, then verify hash
             var felhasznalo = await _context.Felhasznalok
-                .FirstOrDefaultAsync(f => f.Email == dto.Email && f.Jelszo == dto.Jelszo);
+                .FirstOrDefaultAsync(f => f.Email == dto.Email);
 
-            if (felhasznalo == null)
+            if (felhasznalo == null || !BCrypt.Net.BCrypt.Verify(dto.Jelszo, felhasznalo.Jelszo))
                 return Unauthorized("Hibás email vagy jelszó.");
 
             var token = GenerateJwtToken(felhasznalo);
