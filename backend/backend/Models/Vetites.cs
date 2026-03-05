@@ -11,6 +11,11 @@ namespace backend.Models
         public Terem Terem { get; set; }    = null!;
         public int FilmId { get; set; }
         public Film Film { get; set; } = null!;
+
+        public int JegyAr { get; set; }         
+        public string? Nyelv { get; set; }          
+        public string? VetitesTipus { get; set; }   
+
         public ICollection<Foglalthely> Foglalthely = new List<Foglalthely>();
 
     }

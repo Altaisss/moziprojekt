@@ -68,7 +68,6 @@ namespace backend.Context
                 .HasIndex(v => v.Idopont)
                 .HasDatabaseName("IX_Vetites_Idopont");
 
-
             // 2. Composite: very common query = "which seats are taken for this screening?"
             //    Also supports "is this exact seat taken for this screening?"
             modelBuilder.Entity<Foglalthely>()
