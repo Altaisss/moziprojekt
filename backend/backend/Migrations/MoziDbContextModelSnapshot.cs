@@ -173,8 +173,17 @@ namespace backend.Migrations
                     b.Property<DateTime>("Idopont")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("JegyAr")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nyelv")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("TeremId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("VetitesTipus")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

@@ -4,6 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Repositories
 {
+
+    public interface IFelhasznaloRepository : IRepository<Felhasznalo>
+    {
+        Task<Felhasznalo?> GetByEmailAsync(string email);
+        Task<bool> EmailExistsAsync(string email, int? excludeId = null);
+    }
     public class FelhasznaloRepository : Repository<Felhasznalo>, IFelhasznaloRepository
     {
         public FelhasznaloRepository(MoziDbContext context) : base(context) { }

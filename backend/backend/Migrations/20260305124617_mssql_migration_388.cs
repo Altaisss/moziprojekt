@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace backend.Migrations
 {
     /// <inheritdoc />
-    public partial class mssql_migration_211 : Migration
+    public partial class mssql_migration_388 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -104,7 +104,10 @@ namespace backend.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Idopont = table.Column<DateTime>(type: "TEXT", nullable: false),
                     TeremId = table.Column<int>(type: "INTEGER", nullable: false),
-                    FilmId = table.Column<int>(type: "INTEGER", nullable: false)
+                    FilmId = table.Column<int>(type: "INTEGER", nullable: false),
+                    JegyAr = table.Column<int>(type: "INTEGER", nullable: false),
+                    Nyelv = table.Column<string>(type: "TEXT", nullable: true),
+                    VetitesTipus = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

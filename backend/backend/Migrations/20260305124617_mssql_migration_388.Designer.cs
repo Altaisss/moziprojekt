@@ -11,8 +11,8 @@ using backend.Context;
 namespace backend.Migrations
 {
     [DbContext(typeof(MoziDbContext))]
-    [Migration("20260302182737_mssql_migration_211")]
-    partial class mssql_migration_211
+    [Migration("20260305124617_mssql_migration_388")]
+    partial class mssql_migration_388
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -176,8 +176,17 @@ namespace backend.Migrations
                     b.Property<DateTime>("Idopont")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("JegyAr")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nyelv")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("TeremId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("VetitesTipus")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

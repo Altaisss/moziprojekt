@@ -337,7 +337,6 @@ I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets\msbuild.b
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.backend.props
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.backend.props
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.pack.json
-I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\backend.csproj.Up2Date
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\backend.dll
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\refint\backend.dll
@@ -346,3 +345,4 @@ I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\backend.genruntimeconfig.
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\ref\backend.dll
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\BCrypt.Net-Next.dll
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
