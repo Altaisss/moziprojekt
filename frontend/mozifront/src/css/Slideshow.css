@@ -1,0 +1,25 @@
+#slideshow-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    z-index: 0;
+  }
+  
+  #slideshow-image img {
+    position: cover;
+    height: 290px;
+  }
+  
+  #arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin-top: -10em;
+    z-index: 1;
+  }
+  
+  #arrows img:hover {
+    background-color: rgb(153, 233, 233);
+  }

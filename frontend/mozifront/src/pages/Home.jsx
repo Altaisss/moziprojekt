@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SlideshowAuto from "../comps/SlideShowAuto";
 
 
 function Home(filmek) {
@@ -6,6 +7,7 @@ function Home(filmek) {
 
     return (
         <>
+            <SlideshowAuto />
         </>
     )
 
