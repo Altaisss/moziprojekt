@@ -1,46 +1,58 @@
 import { useParams } from "react-router-dom";
-import { GetVetitesekId, GetSzekek } from "../service/api";
+import { GetVetitesekId, GetSzekek, GetFoglaltHelyek, CreateFoglalas, CreateFoglaltHely } from "../service/api";
 import { useState, useEffect } from "react";
+import { useAuth } from "../comps/Authcontext";
 import SzekTerkep from "../comps/SzekTerkep";
 
 function Foglalas() {
-    try {
+    const { id } = useParams();
+    const { felhasznalo } = useAuth();
 
-        const [vetites, setVetites] = useState()
-        const [szekek, setSzekek] = useState()
-        const { id } = useParams();
-        useEffect(() => {
-            async function Vetitesbetolt() {
-                const be = await GetVetitesekId(id)
-                setVetites(be);
+    const [vetites, setVetites] = useState(null);
+    const [szekek, setSzekek] = useState([]);
+    const [foglaltSzekek, setFoglaltSzekek] = useState([]);
 
-            }
-            Vetitesbetolt();
-        }, [])
-        useEffect(() => {
-            async function SzekekBetolt() {
-                const be = await GetSzekek()
-                setSzekek(be);
+    useEffect(() => {
+        async function betolt() {
+            const v = await GetVetitesekId(id);
+            const s = await GetSzekek();
+            const fh = await GetFoglaltHelyek();
 
-            }
-            SzekekBetolt();
-        }, [])
-        console.log(vetites)
-        console.log(szekek)
-        const teremszekek = szekek.filter(szek => szek.teremId === vetites.teremId)
-        console.log(teremszekek)
+            // csak az ehhez a vetítéshez tartozó foglalt székek id-jai
+            const foglaltIds = fh
+                .filter(f => f.vetitesId === Number(id))
+                .map(f => f.szekId);
 
+            setVetites(v);
+            setSzekek(s);
+            setFoglaltSzekek(foglaltIds);
+        }
+        betolt();
+    }, [id]);
 
+    if (!vetites || szekek.length === 0) return <p>Betöltés...</p>;
 
+    const teremSzekek = szekek.filter(szek => szek.teremId === vetites.teremId);
 
-        return (
-            <>
-                <SzekTerkep szekek={teremszekek} foglaltszekek={[]} />
-            </>
-        )
+    const handleFoglalas = async (kivalasztottSzekek) => {
+        const foglalas = await CreateFoglalas(Number(felhasznalo.id));
 
-    } catch (e) {
-        console.log(e);
-    }
+        for (const szekId of kivalasztottSzekek) {
+            await CreateFoglaltHely(szekId, foglalas.id, Number(id));
+        }
+
+        // frissítsd a foglalt székeket a sikeres foglalás után
+        setFoglaltSzekek(prev => [...prev, ...kivalasztottSzekek]);
+        alert(`Sikeres foglalás! ${kivalasztottSzekek.length} szék lefoglalva.`);
+    };
+
+    return (
+        <SzekTerkep
+            szekek={teremSzekek}
+            foglaltSzekek={foglaltSzekek}
+            onFoglalas={handleFoglalas}
+        />
+    );
 }
+
 export default Foglalas;

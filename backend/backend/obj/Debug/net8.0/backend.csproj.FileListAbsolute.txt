@@ -173,7 +173,6 @@ C:\Users\szabo\Documents\moziprojekt\moziprojekt\backend\backend\bin\Debug\net8.
 C:\Users\szabo\Documents\moziprojekt\moziprojekt\backend\backend\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\appsettings.Development.json
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\appsettings.json
-I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\backend.staticwebassets.endpoints.json
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\backend.exe
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\backend.deps.json
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\backend.runtimeconfig.json
@@ -330,13 +329,6 @@ I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\backend.sourcelink.json
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\scopedcss\bundle\backend.styles.css
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.build.json
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.development.json
-I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets\msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props
-I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets\msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets\msbuild.build.backend.props
-I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.backend.props
-I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.backend.props
-I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.pack.json
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\backend.csproj.Up2Date
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\backend.dll
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\refint\backend.dll
@@ -345,4 +337,11 @@ I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\backend.genruntimeconfig.
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\ref\backend.dll
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\BCrypt.Net-Next.dll
 I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+I:\szadam\moziprojekt\backend\backend\bin\Debug\net8.0\backend.staticwebassets.endpoints.json
+I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\rpswa.dswa.cache.json
+I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\rjimswa.dswa.cache.json
+I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.build.json.cache
+I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
