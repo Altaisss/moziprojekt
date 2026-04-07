@@ -1,6 +1,7 @@
 using backend.DTOs;
 using backend.Models;
 using backend.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Services
 {
@@ -65,18 +66,38 @@ namespace backend.Services
 
         public async Task<(bool Found, bool Owned)> DeleteAsync(int id, int felhasznaloId)
         {
-            var foglalas = await _repo.GetByIdAsync(id);
-            if (foglalas == null) return (false, false);
-            if (foglalas.FelhasznaloId != felhasznaloId) return (true, false);
+            var foglalas = await _repo.GetByIdWithHelyekAsync(id);
 
+            if (foglalas == null)
+                return (false, false);
+
+            if (foglalas.FelhasznaloId != felhasznaloId)
+                return (true, false);
+
+            // Delete related seats first
+            if (foglalas.Foglalthely != null && foglalas.Foglalthely.Any())
+            {
+                _repo.DeleteRangeFoglaltHely(foglalas.Foglalthely);
+            }
+
+            // Delete the foglalas
             await _repo.DeleteAsync(foglalas);
+
             return (true, true);
         }
 
         private static FoglalasResponse ToResponse(Foglalas f) => new()
         {
             Id = f.Id,
-            FelhasznaloId = f.FelhasznaloId
+            FelhasznaloId = f.FelhasznaloId,
+            Foglalthely = f.Foglalthely.Select(h => new FoglaltHelyResponse
+            {
+                Id = h.Id,
+                SzekId = h.SzekId,
+                FoglalasId = h.FoglalasId,
+                VetitesId = h.VetitesId
+            }).ToList()
         };
+
     }
 }

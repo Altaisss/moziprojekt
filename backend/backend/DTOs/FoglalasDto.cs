@@ -12,5 +12,6 @@ namespace backend.DTOs
     {
         public int Id { get; set; }
         public int FelhasznaloId { get; set; }
+        public List<FoglaltHelyResponse> Foglalthely { get; set; } = new();
     }
 }

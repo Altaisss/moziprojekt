@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../css/SzekTerkep.css';
 
-function SzekTerkep({ szekek, foglaltSzekek = [], onFoglalas }) {
+function SzekTerkep({ szekek, foglaltSzekek, onFoglalas }) {
     const [kivalasztottSzekek, setKivalasztottSzekek] = useState([]);
 
     const sorok = [...new Set(szekek.map(s => s.sor))].sort((a, b) => a - b);

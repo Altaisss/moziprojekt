@@ -96,6 +96,12 @@ namespace backend.Context
                 .HasIndex(u => u.Email)
                 .IsUnique()
                 .HasDatabaseName("IX_Felhasznalo_Email_Unique");
+
+            modelBuilder.Entity<Foglalthely>()
+      .HasOne(fh => fh.Foglalas)
+      .WithMany(f => f.Foglalthely)
+      .HasForeignKey(fh => fh.FoglalasId)
+      .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

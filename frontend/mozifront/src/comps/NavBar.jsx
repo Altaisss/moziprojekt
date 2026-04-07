@@ -7,10 +7,6 @@ import "../css/NavBar.css"
 
 export function NavBar() {
 
-    //const felhasznalo = jwtDecode(localStorage.getItem("token")) || "Profile";
-    const { felhasznalo } = useAuth();
-    console.log(felhasznalo)
-
     return (
         <nav className="nav-bar">
             <div className="nav-links">
@@ -18,7 +14,7 @@ export function NavBar() {
                 <Link to='/vetitesek'>Vetitesek</Link>
             </div>
             <div className="nav-profile nav-links">
-                <Link to='/profile'>{felhasznalo ? felhasznalo.nev : "Profile"}</Link>
+                <Link to='/profile'>Profile</Link>
             </div>
         </nav>
     )

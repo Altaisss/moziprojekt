@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AuthProvider, useAuth } from "../comps/Authcontext.jsx";
 import LoginPage from "./Loginpage.jsx"
 import RegisterPage from "./Registerpage.jsx";
+import MyProfile from "./MyProfile.jsx";
 
 function AppTartalom() {
     const { felhasznalo, kijelentkezes } = useAuth();
@@ -20,12 +21,14 @@ function AppTartalom() {
                 </>
             )
             : (
-                <RegisterPage onRegisztralt={() => setOldal("login")} />
+
+                    <RegisterPage onRegisztralt={() => setOldal("login")} />
             );
     }
 
     return (
         <>
+            <MyProfile id={felhasznalo.id} />
             <button onClick={kijelentkezes}>Kijelentkezés</button>
         </>
     );

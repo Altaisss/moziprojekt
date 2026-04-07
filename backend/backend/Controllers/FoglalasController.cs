@@ -50,12 +50,17 @@ namespace backend.Controllers
             return NoContent();
         }
 
+
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
-            var (found, owned) = await _foglalasService.DeleteAsync(id, GetCurrentUserId());
-            if (!found) return NotFound();
-            if (!owned) return Forbid();
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+            var (found, owned) = await _foglalasService.DeleteAsync(id, userId);
+
+            if (!found) return NotFound(new { message = "Foglalás nem található." });
+
             return NoContent();
         }
 
