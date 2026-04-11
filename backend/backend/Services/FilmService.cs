@@ -16,10 +16,12 @@ namespace backend.Services
     public class FilmService : IFilmService
     {
         private readonly IFilmRepository _repo;
+        private readonly IFileService _fileService;
 
-        public FilmService(IFilmRepository repo)
+        public FilmService(IFilmRepository repo, IFileService fileService)
         {
             _repo = repo;
+            _fileService = fileService;
         }
 
         public async Task<IEnumerable<FilmResponse>> GetAllAsync()
@@ -36,12 +38,18 @@ namespace backend.Services
 
         public async Task<FilmResponse> CreateAsync(FilmRequest dto)
         {
+            string? filePath = null;
+
+            if (dto.Kep != null && dto.Kep.Length > 0)
+                filePath = await _fileService.SaveImageAsync(dto.Kep);
+
             var film = new Film
             {
                 Cim = dto.Cim,
                 Rendezo = dto.Rendezo,
                 Hossz = dto.Hossz,
-                Leiras = dto.Leiras
+                Leiras = dto.Leiras,
+                KepUrl = filePath
             };
 
             await _repo.CreateAsync(film);
@@ -51,12 +59,26 @@ namespace backend.Services
         public async Task<bool> UpdateAsync(int id, FilmRequest dto)
         {
             var film = await _repo.GetByIdAsync(id);
-            if (film == null) return false;
+            if (film == null)
+                return false;
+
+            string? filePath = null;
+
+            if (dto.Kep != null && dto.Kep.Length > 0)
+                filePath = await _fileService.SaveImageAsync(dto.Kep);
 
             film.Cim = dto.Cim;
             film.Rendezo = dto.Rendezo;
             film.Hossz = dto.Hossz;
             film.Leiras = dto.Leiras;
+
+            if (filePath != null)
+            {
+                if (!string.IsNullOrEmpty(film.KepUrl))
+                    _fileService.DeleteImage(film.KepUrl);
+
+                film.KepUrl = filePath;
+            }
 
             await _repo.UpdateAsync(film);
             return true;
@@ -65,7 +87,11 @@ namespace backend.Services
         public async Task<bool> DeleteAsync(int id)
         {
             var film = await _repo.GetByIdAsync(id);
-            if (film == null) return false;
+            if (film == null)
+                return false;
+
+            if (!string.IsNullOrEmpty(film.KepUrl))
+                _fileService.DeleteImage(film.KepUrl);
 
             await _repo.DeleteAsync(film);
             return true;
@@ -77,7 +103,8 @@ namespace backend.Services
             Cim = f.Cim,
             Rendezo = f.Rendezo,
             Hossz = f.Hossz,
-            Leiras = f.Leiras
+            Leiras = f.Leiras,
+            KepUrl = f.KepUrl
         };
     }
 }

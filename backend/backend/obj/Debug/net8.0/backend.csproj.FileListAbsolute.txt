@@ -347,4 +347,5 @@ I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.build.end
 I:\szadam\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\szabo\Documents\moziprojekt\moziprojekt\backend\backend\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\szabo\Documents\moziprojekt\moziprojekt\backend\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\szabo\Documents\moziprojekt\moziprojekt\backend\backend\bin\Debug\net8.0\backend.staticwebassets.runtime.json
 C:\Users\szabo\Documents\moziprojekt\moziprojekt\backend\backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

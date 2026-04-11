@@ -115,17 +115,27 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "backend.Controllers.FilmController",
+    "ContainingType": "FilmController",
     "Method": "GetAll",
     "RelativePath": "api/Film",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[backend.DTOs.FilmResponse, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "backend.Controllers.FilmController",
+    "ContainingType": "FilmController",
     "Method": "Create",
     "RelativePath": "api/Film",
     "HttpMethod": "POST",
@@ -133,15 +143,35 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "backend.DTOs.FilmRequest",
-        "IsRequired": true
+        "Name": "Cim",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Rendezo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Hossz",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Leiras",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Kep",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "backend.Controllers.FilmController",
+    "ContainingType": "FilmController",
     "Method": "GetById",
     "RelativePath": "api/Film/{id}",
     "HttpMethod": "GET",
@@ -154,10 +184,20 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "backend.DTOs.FilmResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "backend.Controllers.FilmController",
+    "ContainingType": "FilmController",
     "Method": "Update",
     "RelativePath": "api/Film/{id}",
     "HttpMethod": "PUT",
@@ -170,15 +210,35 @@
         "IsRequired": true
       },
       {
-        "Name": "dto",
-        "Type": "backend.DTOs.FilmRequest",
-        "IsRequired": true
+        "Name": "Cim",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Rendezo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Hossz",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Leiras",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Kep",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "backend.Controllers.FilmController",
+    "ContainingType": "FilmController",
     "Method": "Delete",
     "RelativePath": "api/Film/{id}",
     "HttpMethod": "DELETE",

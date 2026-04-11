@@ -1,0 +1,40 @@
+/* ================= MOVIE DETAILS ================= */
+.movie-details {
+    display: flex;
+    gap: 30px;
+    margin: 40px;
+    align-items: flex-start;
+}
+
+/* Big poster */
+.movie-poster-large {
+    width: 220px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.8);
+}
+
+/* Info section */
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    color: white;
+}
+
+.movie-info h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.movie-info p {
+    opacity: 0.7;
+    line-height: 1.5;
+    max-width: 500px;
+}
+
+.movie-info span {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}

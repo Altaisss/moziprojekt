@@ -1,32 +1,29 @@
-import { GetVetitesek } from "../service/api";
-import { useState, useEffect } from "react";
 import Table from "../comps/Table";
-function Vetitesek({filmek, vetitesek}) {
+import '../css/Vetites.css';
 
+function Vetitesek({ filmek = [], vetitesek = [] }) {
 
-    try {
-       // console.log(vetitesek);
-
-       // console.log(vetitesek[0].idopont.split("T")[1].slice(0, -3))
-       // console.log(vetitesek[0].idopont.split("T")[0].slice(5).replace('-', '.'))
-        var idopontok = [];
-        vetitesek.map((vet) => {
-            if (!idopontok.includes(vet.idopont.split("T")[0].slice(5).replace('-', '.'))) {
-                idopontok.push(vet.idopont.split("T")[0].slice(5).replace('-', '.'))
-            }
-        })
-       // console.log(idopontok)
-
-        
-
-        return (
-            <>
-                <Table vetitesek={vetitesek} idopontok={idopontok} filmek={filmek}/>
-            </>
+    const idopontok = [
+        ...new Set(
+            vetitesek.map(v =>
+                v.idopont.split("T")[0].slice(5).replace("-", ".")
+            )
         )
+    ];
 
-    } catch (e) {
-        console.log(e.message);
+    if (!vetitesek.length) {
+        return <div className="seating-page">No showtimes available</div>;
     }
+
+    return (
+        <div className="seating-page">
+            <Table
+                vetitesek={vetitesek}
+                idopontok={idopontok}
+                filmek={filmek}
+            />
+        </div>
+    );
 }
+
 export default Vetitesek;

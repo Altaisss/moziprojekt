@@ -19,7 +19,7 @@ export default function LoginPage() {
         const result = await bejelentkezes(email, jelszo);
 
          if (result.success) {
-            //navigate("/");  // ← átirányít a főoldalra, navbar frissül
+            navigate("/");  // ← átirányít a főoldalra, navbar frissül
         } else {
             setHiba(result.hiba);
         }

@@ -1,176 +1,101 @@
-using backend.Context;
+﻿using backend.Context;
 using backend.Models;
 
 namespace backend.Data
 {
     public static class DbSeeder
     {
-        public static async Task SeedAsync(MoziDbContext context)
+        public static async Task SeedAsync(MoziDbContext db)
         {
-            // Csak akkor tölt fel, ha még üres az adatbázis
-            if (context.Filmek.Any() || context.Termek.Any())
-                return;
+            //if (db.Termek.Any())
+              //  return;
 
-            // ── Termek ───────────────────────────────────────────────────────
+            // ── Rooms ──────────────────────────────────────────
             var termek = new List<Terem>
             {
-                new() { TeremNev = "1-es Terem" },
-                new() { TeremNev = "2-es Terem" },
-                new() { TeremNev = "3-as Terem (IMAX)" },
-                new() { TeremNev = "4-es Terem (VIP)" },
-                new() { TeremNev = "5-ös Terem" },
+                new Terem { TeremNev = "1. Terem" },
+                new Terem { TeremNev = "2. Terem" },
+                new Terem { TeremNev = "3. Terem" }
             };
-            context.Termek.AddRange(termek);
-            await context.SaveChangesAsync();
 
-            // ── Szekek ───────────────────────────────────────────────────────
-            var szekek = new List<Szek>();
-            foreach (var terem in termek)
+            await db.Termek.AddRangeAsync(termek);
+            await db.SaveChangesAsync();
+
+            // ── Seats ──────────────────────────────────────────
+            var configurations = new[]
             {
-                for (int sor = 1; sor <= 8; sor++)
+                (termek[0], rows: 8, cols: 10),
+                (termek[1], rows: 8, cols: 8),
+                (termek[2], rows: 6, cols: 8)
+            };
+
+            var szekek = new List<Szek>();
+            foreach (var (terem, rows, cols) in configurations)
+            {
+                for (int sor = 1; sor <= rows; sor++)
                 {
-                    for (int szam = 1; szam <= 10; szam++)
+                    for (int szam = 1; szam <= cols; szam++)
                     {
-                        char oldal = szam <= 5 ? 'B' : 'J'; // Bal / Jobb
                         szekek.Add(new Szek
                         {
                             Sor = sor,
                             Szam = szam,
-                            Oldal = oldal,
+                            Oldal = szam <= cols / 2 ? 'B' : 'J',
                             TeremId = terem.Id
                         });
                     }
                 }
             }
-            context.Szekek.AddRange(szekek);
-            await context.SaveChangesAsync();
 
-            // ── Filmek ───────────────────────────────────────────────────────
-            var filmek = new List<Film>
+            await db.Szekek.AddRangeAsync(szekek);
+            await db.SaveChangesAsync();
+
+            // ── Screenings ─────────────────────────────────────
+            var filmIds = db.Filmek.Select(f => f.Id).ToList();
+            if (!filmIds.Any())
             {
-                new()
-                {
-                    Cim = "Dűne: Második rész",
-                    Rendezo = "Denis Villeneuve",
-                    Hossz = 166,
-                    Leiras = "Paul Atreides egyesül a fremenekkel, hogy bosszút álljon azokért, akik elpusztították a családját."
-                },
-                new()
-                {
-                    Cim = "Oppenheimer",
-                    Rendezo = "Christopher Nolan",
-                    Hossz = 180,
-                    Leiras = "Az atombomba atyjaként ismert J. Robert Oppenheimer életének drámai feldolgozása."
-                },
-                new()
-                {
-                    Cim = "Szegény párák",
-                    Rendezo = "Yorgos Lanthimos",
-                    Hossz = 141,
-                    Leiras = "Egy fiatal nő, akit egy különc tudós keltett életre, felfedezi a világot."
-                },
-                new()
-                {
-                    Cim = "Gladiátor II",
-                    Rendezo = "Ridley Scott",
-                    Hossz = 148,
-                    Leiras = "Évekkel a legendás Maximus halála után egy új harcos lép az arénába."
-                },
-                new()
-                {
-                    Cim = "Alien: Romulus",
-                    Rendezo = "Fede Álvarez",
-                    Hossz = 119,
-                    Leiras = "Fiatalok egy elhagyatott űrállomáson a sorozat legfélelmetesebb lényeivel kerülnek szembe."
-                },
-                new()
-                {
-                    Cim = "Furiosa",
-                    Rendezo = "George Miller",
-                    Hossz = 148,
-                    Leiras = "Furiosa eredettörténete – hogyan vált a Wasteland egyik leghírhedtebb harcosává."
-                },
-                new()
-                {
-                    Cim = "A bentlakók",
-                    Rendezo = "Alexander Payne",
-                    Hossz = 133,
-                    Leiras = "Egy bostoni elit iskola tanárának élete felborul, amikor diákjai közel kerülnek hozzá."
-                },
-                new()
-                {
-                    Cim = "Konklave",
-                    Rendezo = "Edward Berger",
-                    Hossz = 120,
-                    Leiras = "A legmagasabb rangú egyházi vezetők titkos gyűlésén drámai fordulatok következnek be."
-                },
-                new()
-                {
-                    Cim = "Twisters",
-                    Rendezo = "Lee Isaac Chung",
-                    Hossz = 122,
-                    Leiras = "Tornádóvadászok csapnak össze az Oklahomát pusztító viharokkal – és egymással."
-                },
-                new()
-                {
-                    Cim = "A vadon szava",
-                    Rendezo = "Chris Sanders",
-                    Hossz = 100,
-                    Leiras = "Buck, egy szelíd háziállat az aranyláz kori Alaszkában szabadon élő kutyává válik."
-                },
-                new()
-                {
-                    Cim = "Deadpool & Rozsomák",
-                    Rendezo = "Shawn Levy",
-                    Hossz = 127,
-                    Leiras = "Wade Wilson visszatér, ezúttal a Marvel univerzum egyik legikonikusabb karaktere társaságában."
-                },
-                new()
-                {
-                    Cim = "Imaginárius barátok",
-                    Rendezo = "John Krasinski",
-                    Hossz = 104,
-                    Leiras = "Egy fiú különleges képességre tesz szert: látja mások elfeledett képzeletbeli barátait."
-                },
-            };
-            context.Filmek.AddRange(filmek);
-            await context.SaveChangesAsync();
+                Console.WriteLine("No films found, skipping screenings.");
+                return;
+            }
+            var teremIds = termek.Select(t => t.Id).ToList();
+            var nyelvek = new[] { "Magyar", "Eredeti", "Szinkronizált" };
+            var tipusok = new[] { "2D", "3D" };
+            var arak = new[] { 1800, 2000, 2200, 2500 };
 
-            // ── Vetitesek ────────────────────────────────────────────────────
-            var now = DateTime.Now;
-            var vetitesek = new List<Vetites>
+            var today = DateTime.Today;
+            var startHours = new[] { 11, 13, 15, 17, 19, 21 };
+
+            var vetitesek = new List<Vetites>();
+            var rng = new Random(42);
+
+            // Assign each film a base slot so every film gets at least 4 screenings
+            // spread across the week
+            foreach (var filmId in filmIds)
             {
-                // 1-es Terem
-                new() { FilmId = filmek[0].Id, TeremId = termek[0].Id, Idopont = now.AddDays(1).Date.AddHours(10),    JegyAr = 2200, Nyelv = "Magyar",  VetitesTipus = "2D" },
-                new() { FilmId = filmek[0].Id, TeremId = termek[0].Id, Idopont = now.AddDays(1).Date.AddHours(14),    JegyAr = 2200, Nyelv = "Magyar",  VetitesTipus = "2D" },
-                new() { FilmId = filmek[1].Id, TeremId = termek[0].Id, Idopont = now.AddDays(1).Date.AddHours(18),    JegyAr = 2400, Nyelv = "Angol",   VetitesTipus = "2D" },
-                new() { FilmId = filmek[2].Id, TeremId = termek[0].Id, Idopont = now.AddDays(2).Date.AddHours(16),    JegyAr = 2200, Nyelv = "Magyar",  VetitesTipus = "2D" },
+                // Pick 4+ days randomly from the 7-day window
+                var days = Enumerable.Range(0, 7)
+                    .OrderBy(_ => rng.Next())
+                    .Take(rng.Next(4, 7)) // 4 to 6 screenings per film
+                    .OrderBy(d => d)
+                    .ToList();
 
-                // 2-es Terem
-                new() { FilmId = filmek[3].Id, TeremId = termek[1].Id, Idopont = now.AddDays(1).Date.AddHours(11),    JegyAr = 2200, Nyelv = "Magyar",  VetitesTipus = "2D" },
-                new() { FilmId = filmek[4].Id, TeremId = termek[1].Id, Idopont = now.AddDays(1).Date.AddHours(15),    JegyAr = 2200, Nyelv = "Angol",   VetitesTipus = "2D" },
-                new() { FilmId = filmek[5].Id, TeremId = termek[1].Id, Idopont = now.AddDays(2).Date.AddHours(13),    JegyAr = 2200, Nyelv = "Magyar",  VetitesTipus = "2D" },
-                new() { FilmId = filmek[6].Id, TeremId = termek[1].Id, Idopont = now.AddDays(2).Date.AddHours(19),    JegyAr = 2400, Nyelv = "Angol",   VetitesTipus = "2D" },
+                foreach (var day in days)
+                {
+                    var hour = startHours[rng.Next(startHours.Length)];
+                    vetitesek.Add(new Vetites
+                    {
+                        FilmId = filmId,
+                        TeremId = teremIds[rng.Next(teremIds.Count)],
+                        Idopont = today.AddDays(day).AddHours(hour),
+                        JegyAr = arak[rng.Next(arak.Length)],
+                        Nyelv = nyelvek[rng.Next(nyelvek.Length)],
+                        VetitesTipus = tipusok[rng.Next(tipusok.Length)]
+                    });
+                }
+            }
 
-                // 3-as Terem (IMAX)
-                new() { FilmId = filmek[0].Id, TeremId = termek[2].Id, Idopont = now.AddDays(1).Date.AddHours(12),    JegyAr = 3800, Nyelv = "Magyar",  VetitesTipus = "IMAX" },
-                new() { FilmId = filmek[1].Id, TeremId = termek[2].Id, Idopont = now.AddDays(1).Date.AddHours(17),    JegyAr = 3800, Nyelv = "Angol",   VetitesTipus = "IMAX" },
-                new() { FilmId = filmek[3].Id, TeremId = termek[2].Id, Idopont = now.AddDays(2).Date.AddHours(15),    JegyAr = 3800, Nyelv = "Magyar",  VetitesTipus = "IMAX" },
-                new() { FilmId = filmek[10].Id, TeremId = termek[2].Id, Idopont = now.AddDays(2).Date.AddHours(20),   JegyAr = 3800, Nyelv = "Magyar",  VetitesTipus = "IMAX" },
-
-                // 4-es Terem (VIP)
-                new() { FilmId = filmek[7].Id, TeremId = termek[3].Id, Idopont = now.AddDays(1).Date.AddHours(19),    JegyAr = 4500, Nyelv = "Magyar",  VetitesTipus = "VIP" },
-                new() { FilmId = filmek[8].Id, TeremId = termek[3].Id, Idopont = now.AddDays(2).Date.AddHours(17),    JegyAr = 4500, Nyelv = "Angol",   VetitesTipus = "VIP" },
-                new() { FilmId = filmek[9].Id, TeremId = termek[3].Id, Idopont = now.AddDays(3).Date.AddHours(15),    JegyAr = 4500, Nyelv = "Magyar",  VetitesTipus = "VIP" },
-
-                // 5-ös Terem
-                new() { FilmId = filmek[9].Id,  TeremId = termek[4].Id, Idopont = now.AddDays(1).Date.AddHours(10),   JegyAr = 2000, Nyelv = "Magyar",  VetitesTipus = "2D" },
-                new() { FilmId = filmek[10].Id, TeremId = termek[4].Id, Idopont = now.AddDays(1).Date.AddHours(13),   JegyAr = 2000, Nyelv = "Magyar",  VetitesTipus = "2D" },
-                new() { FilmId = filmek[11].Id, TeremId = termek[4].Id, Idopont = now.AddDays(2).Date.AddHours(11),   JegyAr = 2000, Nyelv = "Magyar",  VetitesTipus = "2D" },
-                new() { FilmId = filmek[11].Id, TeremId = termek[4].Id, Idopont = now.AddDays(3).Date.AddHours(14),   JegyAr = 2000, Nyelv = "Angol",   VetitesTipus = "2D" },
-            };
-            context.Vetitesek.AddRange(vetitesek);
-            await context.SaveChangesAsync();
+            await db.Vetitesek.AddRangeAsync(vetitesek);
+            await db.SaveChangesAsync();
         }
     }
 }

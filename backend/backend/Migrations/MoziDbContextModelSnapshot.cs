@@ -60,6 +60,9 @@ namespace backend.Migrations
                     b.Property<int>("Hossz")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("KepUrl")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Leiras")
                         .HasColumnType("TEXT");
 
@@ -215,7 +218,7 @@ namespace backend.Migrations
                     b.HasOne("backend.Models.Foglalas", "Foglalas")
                         .WithMany("Foglalthely")
                         .HasForeignKey("FoglalasId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("backend.Models.Szek", "Szek")

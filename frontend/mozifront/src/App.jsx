@@ -8,6 +8,7 @@ import { useAuth } from './comps/Authcontext';
 import "./css/App.css"
 import Vetitesek from './pages/Vetitesek';
 import Foglalas from './pages/Foglalas';
+import Filmdetails from './pages/Filmdetails';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/vetitesek' element={<Vetitesek filmek={filmek} vetitesek={vetitesek} />} />
         <Route path='/vetitesek/:id' element={<Foglalas/>}/>
+        <Route path='/filmek/:id' element={<Filmdetails/>}/>
       </Routes>
     </>
   )

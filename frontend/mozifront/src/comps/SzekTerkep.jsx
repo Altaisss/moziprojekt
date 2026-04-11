@@ -29,48 +29,53 @@ function SzekTerkep({ szekek, foglaltSzekek, onFoglalas }) {
         <div className="szek-terkep">
             <div className="screen">🎬 VÁSZON</div>
 
-            <table>
-                <tbody>
-                    {sorok.map(sor => {
-                        const balSzekek = szekek
-                            .filter(s => s.sor === sor && s.oldal === 'B')
-                            .sort((a, b) => a.szam - b.szam);
-                        const jobbSzekek = szekek
-                            .filter(s => s.sor === sor && s.oldal === 'J')
-                            .sort((a, b) => a.szam - b.szam);
+            <div className="mozi">
+                {sorok.map(sor => {
+                    const balSzekek = szekek
+                        .filter(s => s.sor === sor && s.oldal === 'B')
+                        .sort((a, b) => a.szam - b.szam);
 
-                        return (
-                            <tr key={sor}>
-                                <td className="sor-szam">{sor}</td>
+                    const jobbSzekek = szekek
+                        .filter(s => s.sor === sor && s.oldal === 'J')
+                        .sort((a, b) => a.szam - b.szam);
+
+                    return (
+                        <div className="sor" key={sor}>
+                            <div className="sor-szam">{sor}</div>
+
+                            <div className="oldal bal">
                                 {balSzekek.map(szek => (
-                                    <td key={szek.id}>
-                                        <button
-                                            onClick={() => szekKattintas(szek.id)}
-                                            className={getSzekClass(szek)}
-                                            disabled={foglaltSzekek.includes(szek.id)}
-                                        >
-                                            {szek.szam}
-                                        </button>
-                                    </td>
+                                    <button
+                                        key={szek.id}
+                                        onClick={() => szekKattintas(szek.id)}
+                                        className={getSzekClass(szek)}
+                                        disabled={foglaltSzekek.includes(szek.id)}
+                                    >
+                                        {szek.szam}
+                                    </button>
                                 ))}
-                                <td className="folyoso"></td>
+                            </div>
+
+                            <div className="folyoso"></div>
+
+                            <div className="oldal jobb">
                                 {jobbSzekek.map(szek => (
-                                    <td key={szek.id}>
-                                        <button
-                                            onClick={() => szekKattintas(szek.id)}
-                                            className={getSzekClass(szek)}
-                                            disabled={foglaltSzekek.includes(szek.id)}
-                                        >
-                                            {szek.szam}
-                                        </button>
-                                    </td>
+                                    <button
+                                        key={szek.id}
+                                        onClick={() => szekKattintas(szek.id)}
+                                        className={getSzekClass(szek)}
+                                        disabled={foglaltSzekek.includes(szek.id)}
+                                    >
+                                        {szek.szam}
+                                    </button>
                                 ))}
-                                <td className="sor-szam">{sor}</td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
+                            </div>
+
+                            <div className="sor-szam">{sor}</div>
+                        </div>
+                    );
+                })}
+            </div>
 
             <div className="foglalas-panel">
                 <p>{kivalasztottSzekek.length} szék kijelölve</p>

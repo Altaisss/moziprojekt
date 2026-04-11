@@ -204,7 +204,33 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilmResponse"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilmResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilmResponse"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -214,19 +240,57 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/FilmRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FilmRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FilmRequest"
+                "required": [
+                  "Cim",
+                  "Rendezo"
+                ],
+                "type": "object",
+                "properties": {
+                  "Cim": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "Rendezo": {
+                    "maxLength": 200,
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  "Hossz": {
+                    "maximum": 500,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Leiras": {
+                    "maxLength": 2000,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Kep": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Cim": {
+                  "style": "form"
+                },
+                "Rendezo": {
+                  "style": "form"
+                },
+                "Hossz": {
+                  "style": "form"
+                },
+                "Leiras": {
+                  "style": "form"
+                },
+                "Kep": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -256,7 +320,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilmResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilmResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilmResponse"
+                }
+              }
+            }
           }
         }
       },
@@ -277,19 +358,57 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/FilmRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FilmRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FilmRequest"
+                "required": [
+                  "Cim",
+                  "Rendezo"
+                ],
+                "type": "object",
+                "properties": {
+                  "Cim": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "Rendezo": {
+                    "maxLength": 200,
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  "Hossz": {
+                    "maximum": 500,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Leiras": {
+                    "maxLength": 2000,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Kep": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Cim": {
+                  "style": "form"
+                },
+                "Rendezo": {
+                  "style": "form"
+                },
+                "Hossz": {
+                  "style": "form"
+                },
+                "Leiras": {
+                  "style": "form"
+                },
+                "Kep": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -994,28 +1113,30 @@
         },
         "additionalProperties": false
       },
-      "FilmRequest": {
-        "required": [
-          "cim",
-          "rendezo"
-        ],
+      "FilmResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "cim": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "rendezo": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "hossz": {
             "type": "integer",
             "format": "int32"
           },
           "leiras": {
+            "type": "string",
+            "nullable": true
+          },
+          "kepUrl": {
             "type": "string",
             "nullable": true
           }

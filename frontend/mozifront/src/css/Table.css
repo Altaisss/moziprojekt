@@ -1,0 +1,171 @@
+/* ================= ROOT (fluid scaling) ================= */
+:root {
+    --cell-padding: clamp(10px, 1.5vw, 20px);
+    --font-small: clamp(11px, 1vw, 13px);
+    --font-normal: clamp(13px, 1.2vw, 16px);
+    --font-large: clamp(15px, 1.5vw, 18px);
+}
+
+/* ================= CONTAINER ================= */
+.showtime-table {
+    width: 100%;
+    overflow: auto; /* enables scrolling */
+    overflow-x: auto;
+}
+
+/* ================= ROWS ================= */
+.showtime-row {
+    display: grid;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease;
+     min-width: 800px;
+
+    /* helps columns shrink nicely */
+    grid-auto-columns: minmax(80px, 1fr);
+}
+
+.showtime-row:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ================= HEADER ================= */
+.showtime-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #0b0b10; /* solid so it doesn't become transparent */
+}
+
+.showtime-header .showtime-cell {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: var(--font-small);
+}
+
+/* ================= CELLS ================= */
+.showtime-cell {
+    padding: var(--cell-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    border-right: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: var(--font-normal);
+}
+
+.showtime-cell:last-child {
+    border-right: none;
+}
+
+/* ================= FILM TITLE ================= */
+.film-title {
+    justify-content: flex-start;
+    gap: clamp(10px, 1.5vw, 20px);
+    font-weight: 700;
+    font-size: var(--font-large);
+    background-color: rgba(255, 255, 255, 0.015);
+}
+
+/* ================= POSTER ================= */
+.film-poster {
+    width: clamp(60px, 8vw, 100px);
+    height: clamp(90px, 12vw, 150px);
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+    transition: transform 0.2s ease;
+}
+
+.film-poster:hover {
+    transform: scale(1.05);
+}
+
+/* ================= TIME CELLS ================= */
+.time-cell {
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ================= TIME BUTTONS ================= */
+.time-slot a {
+    display: inline-block;
+    padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1vw, 16px);
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: clamp(12px, 1.2vw, 16px);
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.time-slot a:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+.time-slot a:active {
+    transform: scale(0.95);
+}
+
+/* ================= EMPTY CELLS ================= */
+.no-show {
+    opacity: 0.2;
+    font-size: 1.1rem;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 900px) {
+    .showtime-row {
+        grid-template-columns: 250px repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .film-title {
+        font-size: 15px;
+    }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+    .showtime-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .showtime-cell {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 12px;
+    }
+
+    .film-title {
+        align-items: center;
+    }
+
+    .film-poster {
+        width: 70px;
+        height: 100px;
+    }
+
+    .time-cell {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .time-slot a {
+        flex: 1 1 auto;
+    }
+}
