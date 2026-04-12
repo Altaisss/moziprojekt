@@ -1,0 +1,246 @@
+/* ================= LOGIN PAGE ================= */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    background: #1a1a1a;
+    border-radius: 12px;
+}
+
+.login-form h2 {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.login-form input {
+    background: #2a2a2a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+    border-color: #e50914;
+}
+
+.login-form input::placeholder {
+    color: rgba(255,255,255,0.35);
+}
+
+.login-form button[type="submit"] {
+    padding: 12px;
+    background: #e50914;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+
+.login-form button[type="submit"]:hover {
+    background: #ff2020;
+}
+
+.login-form button[type="submit"]:disabled {
+    background: #888;
+    cursor: not-allowed;
+}
+
+.login-form .hiba {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* ================= REGISTER PAGE ================= */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    background: #1a1a1a;
+    border-radius: 12px;
+}
+
+.register-form h2 {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.register-form input {
+    background: #2a2a2a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.register-form input:focus {
+    border-color: #e50914;
+}
+
+.register-form input::placeholder {
+    color: rgba(255,255,255,0.35);
+}
+
+.register-form button[type="submit"] {
+    padding: 12px;
+    background: #e50914;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+
+.register-form button[type="submit"]:hover {
+    background: #ff2020;
+}
+
+.register-form button[type="submit"]:disabled {
+    background: #888;
+    cursor: not-allowed;
+}
+
+.register-form .alt-btn {
+    background: transparent;
+    border: none;
+    color: #e50914;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.register-form .alt-btn:hover {
+    color: #ff2020;
+}
+
+.register-form p {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    margin: 0;
+}
+
+.register-form .hiba {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin: 0;
+}
+
+.siker-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+}
+
+.siker-wrap p {
+    color: #6bff9e;
+    font-size: 1.1rem;
+}
+
+.siker-wrap button {
+    padding: 12px 28px;
+    background: #e50914;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.siker-wrap button:hover {
+    background: #ff2020;
+}
+
+/* ================= PROFILE PAGE ================= */
+.profile-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px;
+    color: white;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 500px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.logout-btn {
+    padding: 12px;
+    background: transparent;
+    border: 1px solid rgba(229,9,20,0.4);
+    border-radius: 8px;
+    color: #e50914;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+
+.logout-btn:hover {
+    background: rgba(229,9,20,0.1);
+}
+
+.no-account {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.no-account button {
+    background: transparent;
+    border: none;
+    color: #e50914;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.no-account button:hover {
+    color: #ff2020;
+}

@@ -50,7 +50,6 @@ namespace backend.Services
                 FilmId = dto.FilmId,
                 JegyAr = dto.JegyAr,
                 Nyelv = dto.Nyelv,
-                VetitesTipus = dto.VetitesTipus
             };
 
             await _repo.CreateAsync(vetites);
@@ -70,7 +69,6 @@ namespace backend.Services
             vetites.FilmId = dto.FilmId;
             vetites.JegyAr = dto.JegyAr;
             vetites.Nyelv = dto.Nyelv;
-            vetites.VetitesTipus = dto.VetitesTipus;
 
             await _repo.UpdateAsync(vetites);
             return (true, null);
@@ -92,8 +90,7 @@ namespace backend.Services
             TeremId = v.TeremId,
             FilmId = v.FilmId,
             JegyAr = v.JegyAr,
-            Nyelv = v.Nyelv,
-            VetitesTipus = v.VetitesTipus
+            Nyelv = v.Nyelv
         };
     }
 }

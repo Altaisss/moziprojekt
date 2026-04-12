@@ -3,99 +3,89 @@ using backend.Models;
 
 namespace backend.Data
 {
-    public static class DbSeeder
+    public static class VetitesSeeder
     {
         public static async Task SeedAsync(MoziDbContext db)
         {
-            //if (db.Termek.Any())
-              //  return;
+            if (db.Vetitesek.Any()) return;
 
-            // ── Rooms ──────────────────────────────────────────
-            var termek = new List<Terem>
+            var filmek = db.Filmek.ToList();
+            var teremIds = db.Termek.Select(t => t.Id).ToList();
+
+            if (!filmek.Any() || !teremIds.Any())
             {
-                new Terem { TeremNev = "1. Terem" },
-                new Terem { TeremNev = "2. Terem" },
-                new Terem { TeremNev = "3. Terem" }
-            };
-
-            await db.Termek.AddRangeAsync(termek);
-            await db.SaveChangesAsync();
-
-            // ── Seats ──────────────────────────────────────────
-            var configurations = new[]
-            {
-                (termek[0], rows: 8, cols: 10),
-                (termek[1], rows: 8, cols: 8),
-                (termek[2], rows: 6, cols: 8)
-            };
-
-            var szekek = new List<Szek>();
-            foreach (var (terem, rows, cols) in configurations)
-            {
-                for (int sor = 1; sor <= rows; sor++)
-                {
-                    for (int szam = 1; szam <= cols; szam++)
-                    {
-                        szekek.Add(new Szek
-                        {
-                            Sor = sor,
-                            Szam = szam,
-                            Oldal = szam <= cols / 2 ? 'B' : 'J',
-                            TeremId = terem.Id
-                        });
-                    }
-                }
-            }
-
-            await db.Szekek.AddRangeAsync(szekek);
-            await db.SaveChangesAsync();
-
-            // ── Screenings ─────────────────────────────────────
-            var filmIds = db.Filmek.Select(f => f.Id).ToList();
-            if (!filmIds.Any())
-            {
-                Console.WriteLine("No films found, skipping screenings.");
+                Console.WriteLine("No films or rooms found, skipping screenings.");
                 return;
             }
-            var teremIds = termek.Select(t => t.Id).ToList();
+
             var nyelvek = new[] { "Magyar", "Eredeti", "Szinkronizált" };
-            var tipusok = new[] { "2D", "3D" };
             var arak = new[] { 1800, 2000, 2200, 2500 };
-
             var today = DateTime.Today;
-            var startHours = new[] { 11, 13, 15, 17, 19, 21 };
-
-            var vetitesek = new List<Vetites>();
+            var startHours = new[] { 10, 13, 16, 19 };
             var rng = new Random(42);
 
-            // Assign each film a base slot so every film gets at least 4 screenings
-            // spread across the week
-            foreach (var filmId in filmIds)
+            // track occupied slots per room per day: key = (teremId, date, hour)
+            var foglalt = new HashSet<(int teremId, DateTime nap, int ora)>();
+
+            var vetitesek = new List<Vetites>();
+
+            foreach (var film in filmek)
             {
-                // Pick 4+ days randomly from the 7-day window
                 var days = Enumerable.Range(0, 7)
                     .OrderBy(_ => rng.Next())
-                    .Take(rng.Next(4, 7)) // 4 to 6 screenings per film
+                    .Take(rng.Next(4, 7))
                     .OrderBy(d => d)
                     .ToList();
 
                 foreach (var day in days)
                 {
-                    var hour = startHours[rng.Next(startHours.Length)];
-                    vetitesek.Add(new Vetites
+                    var nap = today.AddDays(day);
+
+                    // try to find a free slot in a random room
+                    var shuffledTermek = teremIds.OrderBy(_ => rng.Next()).ToList();
+                    var shuffledHours = startHours.OrderBy(_ => rng.Next()).ToList();
+
+                    bool placed = false;
+                    foreach (var teremId in shuffledTermek)
                     {
-                        FilmId = filmId,
-                        TeremId = teremIds[rng.Next(teremIds.Count)],
-                        Idopont = today.AddDays(day).AddHours(hour),
-                        JegyAr = arak[rng.Next(arak.Length)],
-                        Nyelv = nyelvek[rng.Next(nyelvek.Length)],
-                        VetitesTipus = tipusok[rng.Next(tipusok.Length)]
-                    });
+                        foreach (var hour in shuffledHours)
+                        {
+                            // check if this slot conflicts with any already placed screening
+                            var incoming = nap.AddHours(hour);
+                            var incomingEnd = incoming.AddMinutes(film.Hossz);
+
+                            bool conflicts = vetitesek.Any(v =>
+                                v.TeremId == teremId &&
+                                v.Idopont.Date == nap.Date &&
+                                incoming < v.Idopont.AddMinutes(filmek.First(f => f.Id == v.FilmId).Hossz) &&
+                                incomingEnd > v.Idopont
+                            );
+
+                            if (!conflicts)
+                            {
+                                vetitesek.Add(new Vetites
+                                {
+                                    FilmId = film.Id,
+                                    TeremId = teremId,
+                                    Idopont = incoming,
+                                    JegyAr = arak[rng.Next(arak.Length)],
+                                    Nyelv = nyelvek[rng.Next(nyelvek.Length)],
+                                });
+                                placed = true;
+                                break;
+                            }
+                        }
+                        if (placed) break;
+                    }
+
+                    if (!placed)
+                        Console.WriteLine($"Could not place screening for film {film.Id} on day {day} — all slots taken.");
                 }
             }
 
             await db.Vetitesek.AddRangeAsync(vetitesek);
             await db.SaveChangesAsync();
+            Console.WriteLine($"Seeded {vetitesek.Count} screenings.");
         }
     }
 }

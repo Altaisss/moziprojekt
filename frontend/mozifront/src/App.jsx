@@ -9,30 +9,28 @@ import "./css/App.css"
 import Vetitesek from './pages/Vetitesek';
 import Foglalas from './pages/Foglalas';
 import Filmdetails from './pages/Filmdetails';
+import AdminRoute from './comps/Adminroute';
+import AdminPage from './pages/AdminPage';
 
 function App() {
 
   const { felhasznalo } = useAuth();
   const [filmek, setFilmek] = useState([]);
-
-  useEffect(() => {
-    async function Filmekbetolt() {
-      const be = await GetFilmek()
-      setFilmek(be);
-
-    }
-    Filmekbetolt();
-  }, [])
-
   const [vetitesek, setVetitesek] = useState();
-  useEffect(() => {
-      async function Vetitesekbetolt() {
-          const be = await GetVetitesek()
-          setVetitesek(be);
 
-      }
-      Vetitesekbetolt();
-  }, [])
+ useEffect(() => {
+  async function betolt() {
+    const [filmekData, vetitesekData] = await Promise.all([
+      GetFilmek(),
+      GetVetitesek()
+    ]);
+
+    setFilmek(filmekData);
+    setVetitesek(vetitesekData);
+  }
+
+  betolt();
+}, []);
   console.log(filmek);
 
   return (
@@ -44,6 +42,12 @@ function App() {
         <Route path='/vetitesek' element={<Vetitesek filmek={filmek} vetitesek={vetitesek} />} />
         <Route path='/vetitesek/:id' element={<Foglalas/>}/>
         <Route path='/filmek/:id' element={<Filmdetails/>}/>
+        <Route path="/admin"element={
+        <AdminRoute>
+            <AdminPage />
+        </AdminRoute>
+    }
+/>
       </Routes>
     </>
   )

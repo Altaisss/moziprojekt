@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../comps/Authcontext.jsx";
 import { useNavigate } from "react-router-dom";
+import { refreshPage } from "../comps/Refresh.jsx";
+import '../css/Login.css'
 
 export default function LoginPage() {
     const { bejelentkezes } = useAuth();
@@ -20,8 +22,11 @@ export default function LoginPage() {
 
          if (result.success) {
             navigate("/");  // ← átirányít a főoldalra, navbar frissül
+            refreshPage();
         } else {
             setHiba(result.hiba);
+            setEmail("") ;
+            setJelszo("");
         }
         // Ha sikeres, az AuthContext frissül és a szülő komponens
         // átirányíthatja a felhasználót (lásd App.jsx)
@@ -30,7 +35,7 @@ export default function LoginPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit}>
             <h2>Bejelentkezés</h2>
 
             <input
@@ -49,7 +54,7 @@ export default function LoginPage() {
                 required
             />
 
-            {hiba && <p style={{ color: "red" }}>{hiba}</p>}
+            {hiba && <p className="hiba" style={{ color: "red" }}>{hiba}</p>}
 
             <button type="submit" disabled={tolt}>
                 {tolt ? "Betöltés..." : "Bejelentkezés"}

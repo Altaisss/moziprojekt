@@ -1,0 +1,78 @@
+.film-grid-wrap {
+  background: #111;
+  padding: 28px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.film-grid-wrap h2 {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);  /* fixed column width */
+  gap: 24px;
+}
+
+.poster-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 0;    /* remove the padding trick */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.poster-img-wrap img {
+  width: 200px;   /* fixed */
+  height: 300px;  /* fixed */
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+/* poster-card, poster-img-wrap, play-overlay, poster-label, poster-year */
+
+.poster-label {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  margin-top: 8px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.poster-card {
+  flex: 0 0 calc((100% - 2 * 14px) / 3);
+  cursor: pointer;
+  position: relative;
+}
+.poster-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 150%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.poster-img-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.poster-card:hover .poster-img-wrap img {
+  transform: scale(1.04);
+  opacity: 0.8;
+}
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+/* are all the same as before — keep them as-is */

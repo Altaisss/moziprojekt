@@ -29,6 +29,7 @@
     <Folder Include="DTOs\" />
     <Folder Include="Migrations\" />
     <Folder Include="Pictures\" />
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
 </Project>

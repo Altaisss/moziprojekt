@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\0416b28c-478e-4883-a4e1-4c7cb0ae0ab4.jpg",
+      "PackagePath": "staticwebassets\\Images\\0416b28c-478e-4883-a4e1-4c7cb0ae0ab4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\0d7631d1-271c-453b-8002-c0cfc2684611.jpg",
+      "PackagePath": "staticwebassets\\Images\\0d7631d1-271c-453b-8002-c0cfc2684611.jpg"
+    },
+    {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\0db70489-fa59-4676-936c-84ee5fcbf37a.jpg",
       "PackagePath": "staticwebassets\\Images\\0db70489-fa59-4676-936c-84ee5fcbf37a.jpg"
     },
@@ -9,16 +17,60 @@
       "PackagePath": "staticwebassets\\Images\\171da93d-bb57-4066-b00f-1c9beb49ce6c.jpg"
     },
     {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\17354ad5-874e-4f08-aa10-b4a1c0b9f7e4.jpg",
+      "PackagePath": "staticwebassets\\Images\\17354ad5-874e-4f08-aa10-b4a1c0b9f7e4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\2fd64611-2893-400e-a93d-e11de86ca7e2.jpg",
+      "PackagePath": "staticwebassets\\Images\\2fd64611-2893-400e-a93d-e11de86ca7e2.jpg"
+    },
+    {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\33c50c60-ed06-458b-8432-b95023f4a790.jpg",
       "PackagePath": "staticwebassets\\Images\\33c50c60-ed06-458b-8432-b95023f4a790.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\34cda742-631c-4546-9428-c7759fdf4e0f.jpg",
+      "PackagePath": "staticwebassets\\Images\\34cda742-631c-4546-9428-c7759fdf4e0f.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\358f16d0-7001-425e-a79b-75a967b7b9a5.jpg",
+      "PackagePath": "staticwebassets\\Images\\358f16d0-7001-425e-a79b-75a967b7b9a5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\5878e438-aaf3-4d71-837f-7a7557a73508.jpg",
+      "PackagePath": "staticwebassets\\Images\\5878e438-aaf3-4d71-837f-7a7557a73508.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\60caaf1e-4759-4a02-b4c4-33f7e66fcf92.jpg",
+      "PackagePath": "staticwebassets\\Images\\60caaf1e-4759-4a02-b4c4-33f7e66fcf92.jpg"
     },
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\66679825-949d-4b20-9f28-6eb8beed0203.jpg",
       "PackagePath": "staticwebassets\\Images\\66679825-949d-4b20-9f28-6eb8beed0203.jpg"
     },
     {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\68ba4cf4-f57a-489a-89d2-30f7d391c609.jpg",
+      "PackagePath": "staticwebassets\\Images\\68ba4cf4-f57a-489a-89d2-30f7d391c609.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\6c7063fc-c09f-47ba-b1cc-b4b38fe11d71.jpg",
+      "PackagePath": "staticwebassets\\Images\\6c7063fc-c09f-47ba-b1cc-b4b38fe11d71.jpg"
+    },
+    {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\6e029354-669d-4db2-9b13-b6df63f9a41e.jpg",
       "PackagePath": "staticwebassets\\Images\\6e029354-669d-4db2-9b13-b6df63f9a41e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\72393926-04d5-4132-ab2c-c661f0dac097.jpg",
+      "PackagePath": "staticwebassets\\Images\\72393926-04d5-4132-ab2c-c661f0dac097.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\75bde679-fbf2-4e37-83a3-6445631d621e.jpg",
+      "PackagePath": "staticwebassets\\Images\\75bde679-fbf2-4e37-83a3-6445631d621e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\75c22db2-b49d-4433-ba76-4c1985a6f788.jpg",
+      "PackagePath": "staticwebassets\\Images\\75c22db2-b49d-4433-ba76-4c1985a6f788.jpg"
     },
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\76433244-3dcb-469e-8d09-2da065935703.jpg",
@@ -27,6 +79,10 @@
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\79d79079-b123-437d-bfd3-7f4434f9f562.jpg",
       "PackagePath": "staticwebassets\\Images\\79d79079-b123-437d-bfd3-7f4434f9f562.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\802c70e9-a88d-4eb5-adf1-cc2d1dbef266.jpg",
+      "PackagePath": "staticwebassets\\Images\\802c70e9-a88d-4eb5-adf1-cc2d1dbef266.jpg"
     },
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\87f3ee8b-d018-4961-9cea-849b8bf92b02.jpg",
@@ -41,12 +97,28 @@
       "PackagePath": "staticwebassets\\Images\\a1e1b80b-68a0-4a22-bc50-ff5a60610657.jpg"
     },
     {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\a83fd534-761f-455f-8683-22bbbac26200.jpg",
+      "PackagePath": "staticwebassets\\Images\\a83fd534-761f-455f-8683-22bbbac26200.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\af3e30f3-5d76-4701-8505-f1e36eee810a.jpg",
+      "PackagePath": "staticwebassets\\Images\\af3e30f3-5d76-4701-8505-f1e36eee810a.jpg"
+    },
+    {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\b1cc964f-4a8a-4dd4-b129-cf412f634479.jpg",
       "PackagePath": "staticwebassets\\Images\\b1cc964f-4a8a-4dd4-b129-cf412f634479.jpg"
     },
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\b39a2b22-b79b-4bd7-8797-1e9273a14ebf.jpg",
       "PackagePath": "staticwebassets\\Images\\b39a2b22-b79b-4bd7-8797-1e9273a14ebf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\b58ad02b-7290-464c-b169-20cf7c3080f5.jpg",
+      "PackagePath": "staticwebassets\\Images\\b58ad02b-7290-464c-b169-20cf7c3080f5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\bdcdca16-12eb-4065-8f3c-1338eaa725fc.jpg",
+      "PackagePath": "staticwebassets\\Images\\bdcdca16-12eb-4065-8f3c-1338eaa725fc.jpg"
     },
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\c11b38e8-64f3-4678-875b-e7532f586ea7.jpg",
@@ -59,6 +131,10 @@
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\c6bc3c50-f38f-45a7-bfa1-e02824834ef9.jpg",
       "PackagePath": "staticwebassets\\Images\\c6bc3c50-f38f-45a7-bfa1-e02824834ef9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\c83822fc-f6bd-4713-88fa-1f08f834e68a.jpg",
+      "PackagePath": "staticwebassets\\Images\\c83822fc-f6bd-4713-88fa-1f08f834e68a.jpg"
     },
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\c84b22c0-8928-4d7d-8870-718d68746e71.jpg",
@@ -79,6 +155,14 @@
     {
       "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\f020eb7f-57f3-462e-8bf7-4121582e3357.jpg",
       "PackagePath": "staticwebassets\\Images\\f020eb7f-57f3-462e-8bf7-4121582e3357.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\f09b98e8-cc3b-4c48-b799-fac913cf4229.jpg",
+      "PackagePath": "staticwebassets\\Images\\f09b98e8-cc3b-4c48-b799-fac913cf4229.jpg"
+    },
+    {
+      "Id": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\wwwroot\\Images\\fae8958c-4d53-43f8-9cef-0f257f7b1162.jpg",
+      "PackagePath": "staticwebassets\\Images\\fae8958c-4d53-43f8-9cef-0f257f7b1162.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

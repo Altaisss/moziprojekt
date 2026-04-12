@@ -1266,10 +1266,6 @@
           "nyelv": {
             "type": "string",
             "nullable": true
-          },
-          "vetitesTipus": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

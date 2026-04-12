@@ -14,22 +14,36 @@ function tokenToFelhasznalo(token) {
     };
 }
 
+export function isAdmin() {
+    const token = localStorage.getItem("token");
+    if (!token) return false;
+    try {
+        const decoded = jwtDecode(token);
+        return decoded.isAdmin === "True"; // ASP.NET serializes bool as "True"/"False"
+    } catch {
+        return false;
+    }
+}
+
 export function AuthProvider({ children }) {
     const [felhasznalo, setFelhasznalo] = useState(() => {
         const token = localStorage.getItem("token");
         return token ? tokenToFelhasznalo(token) : null;
     });
 
-    async function bejelentkezes(email, jelszo) {
+   async function bejelentkezes(email, jelszo) {
+    try {
         const result = await Login(email, jelszo);
         if (result.token) {
             localStorage.setItem("token", result.token);
             setFelhasznalo(tokenToFelhasznalo(result.token));
-           // console.log("Felhasználó beállítva:", tokenToFelhasznalo(result.token));
             return { success: true };
         }
+        return { success: false, hiba: result.message ?? "Hibás email vagy jelszó." };
+    } catch (e) {
         return { success: false, hiba: "Hibás email vagy jelszó." };
     }
+}
 
     async function regisztracio(nev, email, jelszo) {
         const result = await Register(nev, email, jelszo);

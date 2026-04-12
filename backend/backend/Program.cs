@@ -1,5 +1,6 @@
 using backend.Context;
 using backend.Data;
+using backend.Models;
 using backend.Repositories;
 using backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -103,10 +104,26 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+
+
 using (var scope = app.Services.CreateScope())
 {
+
     var db = scope.ServiceProvider.GetRequiredService<MoziDbContext>();
-    await DbSeeder.SeedAsync(db);
+    
+
+    if (!db.Felhasznalok.Any(f => f.Email == "admin@admin.com"))
+    {
+        db.Felhasznalok.Add(new Felhasznalo
+        {
+            Nev = "Admin",
+            Email = "admin@admin.com",
+            Jelszo = BCrypt.Net.BCrypt.HashPassword("admin123"),
+            IsAdmin = true
+        });
+        db.SaveChanges();
+    }
+    //await VetitesSeeder.SeedAsync(db);
 }
 
 if (app.Environment.IsDevelopment())

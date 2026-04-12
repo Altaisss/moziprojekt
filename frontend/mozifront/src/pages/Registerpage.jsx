@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../comps/Authcontext.jsx";
+import { refreshPage } from "../comps/Refresh.jsx";
+import '../css/Login.css'
 
 export default function RegisterPage({ onRegisztralt }) {
     const { regisztracio } = useAuth();
@@ -34,15 +36,15 @@ export default function RegisterPage({ onRegisztralt }) {
 
     if (siker) {
         return (
-            <div>
+            <div className="siker-wrap">
                 <p style={{ color: "green" }}>Sikeres regisztráció! 🎉</p>
-                <button onClick={onRegisztralt}>Bejelentkezés</button>
+                <button onClick={() => { refreshPage(); onRegisztralt(); }}>Bejelentkezés</button>
             </div>
         );
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="register-form" onSubmit={handleSubmit}>
             <h2>Regisztráció</h2>
 
             <input
@@ -85,9 +87,7 @@ export default function RegisterPage({ onRegisztralt }) {
 
             <p>
                 Már van fiókod?{" "}
-                <button type="button" onClick={onRegisztralt}>
-                    Bejelentkezés
-                </button>
+                <button onClick={() => { refreshPage(); onRegisztralt(); }}>Bejelentkezés</button>
             </p>
         </form>
     );

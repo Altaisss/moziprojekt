@@ -18,7 +18,6 @@ namespace backend.DTOs
 
         public string? Nyelv { get; set; }
 
-        public string? VetitesTipus { get; set; }
     }
 
     public class VetitesResponse
@@ -29,6 +28,5 @@ namespace backend.DTOs
         public int FilmId { get; set; }
         public int JegyAr { get; set; }
         public string? Nyelv { get; set; }
-        public string? VetitesTipus { get; set; }
     }
 }

@@ -31,7 +31,8 @@ namespace backend.Services
             {
                 new Claim(JwtRegisteredClaimNames.Sub, felhasznalo.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, felhasznalo.Email),
-                new Claim("nev", felhasznalo.Nev)
+                new Claim("nev", felhasznalo.Nev),
+                new Claim("isAdmin", felhasznalo.IsAdmin.ToString()  )
             };
 
             var token = new JwtSecurityToken(
