@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\backend.csproj": {}
+    "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\backend.csproj": {
+    "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\szabo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\szabo\\Documents\\moziprojekt\\moziprojekt\\backend\\backend\\obj\\",
+        "projectPath": "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\szabo.adam.kornel\\.nuget\\packages\\",
+        "outputPath": "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\szabo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\szabo.adam.kornel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,10 +26,12 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -44,10 +46,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -100,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
