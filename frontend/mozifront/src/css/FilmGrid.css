@@ -14,27 +14,27 @@
 
 .film-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);  /* fixed column width */
+  grid-template-columns: repeat(auto-fill, 200px);  
   gap: 24px;
 }
 
 .poster-img-wrap {
   position: relative;
   width: 100%;
-  padding-bottom: 0;    /* remove the padding trick */
+  padding-bottom: 0;    
   border-radius: 10px;
   overflow: hidden;
 }
 
 .poster-img-wrap img {
-  width: 200px;   /* fixed */
-  height: 300px;  /* fixed */
+  width: 200px;   
+  height: 300px;  
   object-fit: cover;
   display: block;
   border-radius: 10px;
   transition: transform 0.25s, opacity 0.25s;
 }
-/* poster-card, poster-img-wrap, play-overlay, poster-label, poster-year */
+
 
 .poster-label {
   color: rgba(255,255,255,0.85);
@@ -75,4 +75,3 @@ a {
   text-decoration: none !important;
   color: inherit;
 }
-/* are all the same as before — keep them as-is */

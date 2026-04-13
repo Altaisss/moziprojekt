@@ -15,6 +15,6 @@ namespace backend.Models
         [StringLength(200)]
         public string Rendezo { get; set; } = null!;
         public string? KepUrl { get; set; }
-        public ICollection<Vetites> Vetitesek { get; set; } = new List<Vetites>(); // Fix #6: field → property
+        public ICollection<Vetites> Vetitesek { get; set; } = new List<Vetites>(); 
     }
 }

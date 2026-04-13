@@ -12,11 +12,11 @@ function Vetitesek({ filmek = [], vetitesek = [] }) {
     ];
 
     if (!vetitesek.length) {
-        return <div className="seating-page">No showtimes available</div>;
+        return <div className="screening-page">No showtimes available</div>;
     }
 
     return (
-        <div className="seating-page">
+        <div className="screening-page">
             <Table
                 vetitesek={vetitesek}
                 idopontok={idopontok}

@@ -14,7 +14,7 @@ export function NavBar() {
                 {felhasznalo && isAdmin() && <Link to='/admin'>Admin</Link>}
             </div>
             <div className="nav-profile nav-links">
-                <Link to='/profile'>Profile</Link>
+                <Link to='/profile'><img className="nav-logo" src="src/assets/profilepic.png"/></Link>
             </div>
         </nav>
     )

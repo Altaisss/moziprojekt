@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="DbSeeder.cs" />
+    <Compile Remove="Pictures\**" />
+    <Content Remove="Pictures\**" />
+    <EmbeddedResource Remove="Pictures\**" />
+    <None Remove="Pictures\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,7 +31,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="DTOs\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Pictures\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 

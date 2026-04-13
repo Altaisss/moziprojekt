@@ -21,16 +21,14 @@ export default function LoginPage() {
         const result = await bejelentkezes(email, jelszo);
 
          if (result.success) {
-            navigate("/");  // ← átirányít a főoldalra, navbar frissül
+            navigate("/"); 
             refreshPage();
         } else {
             setHiba(result.hiba);
             setEmail("") ;
             setJelszo("");
         }
-        // Ha sikeres, az AuthContext frissül és a szülő komponens
-        // átirányíthatja a felhasználót (lásd App.jsx)
-
+      
         setTolt(false);
     }
 

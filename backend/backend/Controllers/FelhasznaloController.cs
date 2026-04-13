@@ -22,9 +22,7 @@ namespace backend.Controllers
             _context = context;
         }
 
-        // Fix #3: GET api/felhasznalo — only admins should list all users.
-        // For now we restrict it to returning only the currently logged-in user's own data.
-        // If you add an "admin" role later, you can gate this with [Authorize(Roles = "Admin")].
+      
         [HttpGet]
         public async Task<ActionResult<FelhasznaloResponse>> GetMe()
         {
@@ -41,11 +39,11 @@ namespace backend.Controllers
                 Id = felhasznalo.Id,
                 Nev = felhasznalo.Nev,
                 Email = felhasznalo.Email
-                // Fix #2: Jelszo not returned
+                
             });
         }
 
-        // GET api/felhasznalo/{id}
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<FelhasznaloResponse>> GetById(int id)
         {
@@ -59,13 +57,11 @@ namespace backend.Controllers
                 Id = felhasznalo.Id,
                 Nev = felhasznalo.Nev,
                 Email = felhasznalo.Email
-                // Fix #2: Jelszo not returned
+                
             });
         }
 
-        // Fix #3: POST (Create) removed — registration is handled by AuthController
-
-        // PUT api/felhasznalo/{id}
+      
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] FelhasznaloRequest dto)
         {
@@ -79,13 +75,13 @@ namespace backend.Controllers
 
             felhasznalo.Nev = dto.Nev;
             felhasznalo.Email = dto.Email;
-            felhasznalo.Jelszo = BCrypt.Net.BCrypt.HashPassword(dto.Jelszo); // Fix #1: hash on update too
+            felhasznalo.Jelszo = BCrypt.Net.BCrypt.HashPassword(dto.Jelszo); 
 
             await _context.SaveChangesAsync();
             return NoContent();
         }
 
-        // DELETE api/felhasznalo/{id}
+     
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

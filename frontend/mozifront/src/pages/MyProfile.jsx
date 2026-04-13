@@ -63,12 +63,12 @@ function MyProfile({ id }) {
                 <p>Nincs foglalásod.</p>
             ) : (
                 myfoglalas.map(f => {
-                    const firstHely = f.foglalthely[0]; // Used for common info
+                    const firstHely = f.foglalthely[0]; 
 
                     return (
                         <div key={f.id} style={{ marginBottom: "25px", padding: "15px", border: "1px solid #ccc", borderRadius: "8px" }}>
 
-                            {/* Common information - shown only once */}
+                            
                             {firstHely && (
                                 <>
                                     <p><strong>Film:</strong> {firstHely.film?.cim || firstHely.vetites?.filmNev}</p>
@@ -77,7 +77,7 @@ function MyProfile({ id }) {
                                 </>
                             )}
 
-                            {/* List of seats */}
+                            
                             <p><strong>Foglalt helyek:</strong></p>
                             <ul>
                                 {f.foglalthely.map(hely => (

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\backend.csproj": {}
+    "C:\\Users\\Martina\\Documents\\projekt\\moziprojekt\\backend\\backend\\backend.csproj": {}
   },
   "projects": {
-    "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\backend.csproj": {
+    "C:\\Users\\Martina\\Documents\\projekt\\moziprojekt\\backend\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\Martina\\Documents\\projekt\\moziprojekt\\backend\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\szabo.adam.kornel\\.nuget\\packages\\",
-        "outputPath": "I:\\szadam\\asdasdasd\\moziprojekt\\backend\\backend\\obj\\",
+        "projectPath": "C:\\Users\\Martina\\Documents\\projekt\\moziprojekt\\backend\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\Martina\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Martina\\Documents\\projekt\\moziprojekt\\backend\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\szabo.adam.kornel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Martina\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,12 +26,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
-            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -50,7 +48,6 @@
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Next": {

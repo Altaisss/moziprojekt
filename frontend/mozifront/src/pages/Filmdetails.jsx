@@ -48,8 +48,6 @@ function Filmdetails() {
                     <h1>{film.cim}</h1>
 
                     {film.leiras && <p>{film.leiras}</p>}
-
-                    {/* optional extra fields */}
                     {film.hossz && <span> {film.hossz} min</span>}
                     {film.rendezo && <span> {film.rendezo}</span>}
                 </div>

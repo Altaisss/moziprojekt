@@ -11,14 +11,6 @@
     z-index: 100;
 }
 
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #e50914;
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
 
 .nav-links {
     display: flex;
@@ -54,4 +46,11 @@
 .nav-links a:hover::after {
     width: 100%;
 }
-
+.nav-logo {
+    background-color: gray;
+    border-radius: 30px;
+    height: auto;
+    width: auto;
+    max-height: 40px;
+    max-width: 160px;
+}

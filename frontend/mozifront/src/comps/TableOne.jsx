@@ -12,7 +12,7 @@ function TableOne({ vetitesek, idopontok }) {
     return (
         <div className="showtime-table">
 
-            {/* HEADER */}
+            
             <div
                 className="showtime-row showtime-header"
                 style={{
@@ -24,7 +24,7 @@ function TableOne({ vetitesek, idopontok }) {
                 ))}
             </div>
 
-            {/* ROW (only one film's times) */}
+            
             <div
                 className="showtime-row"
                 style={{

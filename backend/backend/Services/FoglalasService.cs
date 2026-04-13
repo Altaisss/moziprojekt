@@ -74,13 +74,13 @@ namespace backend.Services
             if (foglalas.FelhasznaloId != felhasznaloId)
                 return (true, false);
 
-            // Delete related seats first
+           
             if (foglalas.Foglalthely != null && foglalas.Foglalthely.Any())
             {
                 _repo.DeleteRangeFoglaltHely(foglalas.Foglalthely);
             }
 
-            // Delete the foglalas
+            
             await _repo.DeleteAsync(foglalas);
 
             return (true, true);

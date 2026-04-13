@@ -13,6 +13,6 @@ namespace backend.Models
         public string Jelszo { get; set; } = null!;
 
         public bool IsAdmin { get; set; } = false;
-        public ICollection<Foglalas> Foglalasok { get; set; } = new List<Foglalas>(); // Fix #6: field → property
+        public ICollection<Foglalas> Foglalasok { get; set; } = new List<Foglalas>(); 
     }
 }

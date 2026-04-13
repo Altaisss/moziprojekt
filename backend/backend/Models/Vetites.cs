@@ -15,6 +15,6 @@ namespace backend.Models
         public int JegyAr { get; set; }
         public string? Nyelv { get; set; }
 
-        public ICollection<Foglalthely> Foglalthely { get; set; } = new List<Foglalthely>(); // Fix #6: field → property
+        public ICollection<Foglalthely> Foglalthely { get; set; } = new List<Foglalthely>(); 
     }
 }

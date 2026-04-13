@@ -8,6 +8,6 @@ namespace backend.Models
         public int Id { get; set; }
         public int FelhasznaloId { get; set; }
         public Felhasznalo Felhasznalo { get; set; } = null!;
-        public ICollection<Foglalthely> Foglalthely { get; set; } = new List<Foglalthely>(); // Fix #6: field → property
+        public ICollection<Foglalthely> Foglalthely { get; set; } = new List<Foglalthely>(); 
     }
 }

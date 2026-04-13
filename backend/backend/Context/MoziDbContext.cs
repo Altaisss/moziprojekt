@@ -63,28 +63,24 @@ namespace backend.Context
                .OnDelete(DeleteBehavior.Restrict);
 
 
-            // 1. Fast lookup of screenings by start time (upcoming screenings, today's schedule, etc.)
             modelBuilder.Entity<Vetites>()
                 .HasIndex(v => v.Idopont)
                 .HasDatabaseName("IX_Vetites_Idopont");
 
-            // 2. Composite: very common query = "which seats are taken for this screening?"
-            //    Also supports "is this exact seat taken for this screening?"
             modelBuilder.Entity<Foglalthely>()
                 .HasIndex(fh => new { fh.VetitesId, fh.SzekId })
-                .IsUnique()                                 // ← important: one seat per screening can be booked only once
+                .IsUnique()
                 .HasDatabaseName("IX_Foglalthely_Vetites_Szek_Unique");
-            // 3. If you often list a user's bookings (my tickets)
+
             modelBuilder.Entity<Foglalas>()
                 .HasIndex(f => f.FelhasznaloId)
                 .HasDatabaseName("IX_Foglalas_FelhasznaloId");
 
-            // 4. Optional: if you allow film title search
             modelBuilder.Entity<Film>()
                 .HasIndex(f => f.Cim)
                 .HasDatabaseName("IX_Film_Cim");
 
-            // 5. Bonus: if you frequently sort screenings by time within a movie or room
+
             modelBuilder.Entity<Vetites>()
                 .HasIndex(v => new { v.FilmId, v.Idopont })
                 .HasDatabaseName("IX_Vetites_FilmId_Idopont");
@@ -98,10 +94,10 @@ namespace backend.Context
                 .HasDatabaseName("IX_Felhasznalo_Email_Unique");
 
             modelBuilder.Entity<Foglalthely>()
-      .HasOne(fh => fh.Foglalas)
-      .WithMany(f => f.Foglalthely)
-      .HasForeignKey(fh => fh.FoglalasId)
-      .OnDelete(DeleteBehavior.Cascade);
+                .HasOne(fh => fh.Foglalas)
+                .WithMany(f => f.Foglalthely)
+                .HasForeignKey(fh => fh.FoglalasId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

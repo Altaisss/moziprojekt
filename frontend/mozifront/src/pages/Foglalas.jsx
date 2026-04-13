@@ -18,7 +18,7 @@ function Foglalas() {
             const s = await GetSzekek();
             const fh = await GetFoglaltHelyek();
 
-            // csak az ehhez a vetítéshez tartozó foglalt székek id-jai
+           
             const foglaltIds = fh
                 .filter(f => f.vetitesId === Number(id))
                 .map(f => f.szekId);
@@ -41,7 +41,7 @@ function Foglalas() {
             await CreateFoglaltHely(szekId, foglalas.id, Number(id));
         }
 
-        // frissítsd a foglalt székeket a sikeres foglalás után
+        
         setFoglaltSzekek(prev => [...prev, ...kivalasztottSzekek]);
         alert(`Sikeres foglalás! ${kivalasztottSzekek.length} szék lefoglalva.`);
     };

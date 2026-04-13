@@ -19,7 +19,7 @@ export function isAdmin() {
     if (!token) return false;
     try {
         const decoded = jwtDecode(token);
-        return decoded.isAdmin === "True"; // ASP.NET serializes bool as "True"/"False"
+        return decoded.isAdmin === "True"; 
     } catch {
         return false;
     }

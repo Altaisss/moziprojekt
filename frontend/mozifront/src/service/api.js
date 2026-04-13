@@ -29,6 +29,11 @@ export async function GetTeremId(id) {
     return handleResponse(res);
 }
 
+export async function GetTeremek() {
+    const res = await fetch(`${BASE_URL}/Terem`);
+    return handleResponse(res);
+}
+
 export async function GetVetitesek() {
     const res = await fetch(`${BASE_URL}/Vetites`);
     return handleResponse(res);
@@ -74,7 +79,7 @@ export async function DeleteFoglalas(id) {
 
         const res = await fetch(`${BASE_URL}/Foglalas/${id}`, {
             method: "DELETE",
-            headers: { 
+            headers: {
                 "Authorization": `Bearer ${token}`
             }
         });
@@ -86,11 +91,27 @@ export async function DeleteFoglalas(id) {
     }
 }
 
+export async function DeleteFilm(id) {
+    const res = await fetch(`${BASE_URL}/Film/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${getToken()}` }
+    });
+    return handleResponse(res);
+}
+
+export async function DeleteVetites(id) {
+    const res = await fetch(`${BASE_URL}/Vetites/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${getToken()}` }
+    });
+    return handleResponse(res);
+}
+
 // ==================== POST ====================
 export async function CreateFoglalas(felhasznaloId) {
     const res = await fetch(`${BASE_URL}/Foglalas`, {
         method: "POST",
-        headers: { 
+        headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${getToken()}`
         },
@@ -102,7 +123,7 @@ export async function CreateFoglalas(felhasznaloId) {
 export async function CreateFoglaltHely(szekId, foglalasId, vetitesId) {
     const res = await fetch(`${BASE_URL}/FoglaltHely`, {
         method: "POST",
-        headers: { 
+        headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${getToken()}`
         },
@@ -110,6 +131,58 @@ export async function CreateFoglaltHely(szekId, foglalasId, vetitesId) {
     });
     return handleResponse(res);
 }
+
+export async function CreateFilm(formData) {
+    const res = await fetch(`${BASE_URL}/Film`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${getToken()}` },
+        body: formData
+    });
+    return handleResponse(res);
+}
+
+export async function CreateVetites(dto) {
+    const res = await fetch(`${BASE_URL}/Vetites`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${getToken()}`
+        },
+        body: JSON.stringify(dto)
+    });
+    return handleResponse(res);
+}
+// ==================== UPDATE ====================
+
+export async function UpdateFilm(id, formData) {
+    const res = await fetch(`${BASE_URL}/Film/${id}`, {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${getToken()}` },
+        body: formData
+    });
+    return handleResponse(res);
+}
+
+
+
+
+export async function UpdateVetites(id, dto) {
+    const res = await fetch(`${BASE_URL}/Vetites/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${getToken()}`
+        },
+        body: JSON.stringify(dto)
+    });
+    return handleResponse(res);
+}
+
+
+
+
+
+
 // ── Auth ─────────────────────────────────────────────────────────────────────
 
 export async function Register(nev, email, jelszo) {
@@ -132,64 +205,10 @@ export async function Login(email, jelszo) {
     return response;
 }
 
-export async function DeleteFilm(id) {
-    const res = await fetch(`${BASE_URL}/Film/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${getToken()}` }
-    });
-    return handleResponse(res);
-}
 
-export async function CreateFilm(formData) {
-    const res = await fetch(`${BASE_URL}/Film`, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${getToken()}` },
-        body: formData  // no Content-Type header — browser sets it automatically for FormData
-    });
-    return handleResponse(res);
-}
 
-export async function UpdateFilm(id, formData) {
-    const res = await fetch(`${BASE_URL}/Film/${id}`, {
-        method: "PUT",
-        headers: { Authorization: `Bearer ${getToken()}` },
-        body: formData
-    });
-    return handleResponse(res);
-}
-export async function GetTeremek() {
-    const res = await fetch(`${BASE_URL}/Terem`);
-    return handleResponse(res);
-}
 
-export async function CreateVetites(dto) {
-    const res = await fetch(`${BASE_URL}/Vetites`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${getToken()}`
-        },
-        body: JSON.stringify(dto)
-    });
-    return handleResponse(res);
-}
 
-export async function UpdateVetites(id, dto) {
-    const res = await fetch(`${BASE_URL}/Vetites/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${getToken()}`
-        },
-        body: JSON.stringify(dto)
-    });
-    return handleResponse(res);
-}
 
-export async function DeleteVetites(id) {
-    const res = await fetch(`${BASE_URL}/Vetites/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${getToken()}` }
-    });
-    return handleResponse(res);
-}
+
+

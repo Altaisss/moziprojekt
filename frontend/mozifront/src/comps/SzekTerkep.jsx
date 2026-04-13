@@ -22,12 +22,12 @@ function SzekTerkep({ szekek, foglaltSzekek, onFoglalas }) {
 
     const handleFoglalas = () => {
         if (onFoglalas) onFoglalas(kivalasztottSzekek);
-        setKivalasztottSzekek([]); // reset kijelölés
+        setKivalasztottSzekek([]); 
     };
 
     return (
         <div className="szek-terkep">
-            <div className="screen">🎬 VÁSZON</div>
+            <div className="screen">VÁSZON</div>
 
             <div className="mozi">
                 {sorok.map(sor => {

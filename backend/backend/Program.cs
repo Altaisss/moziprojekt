@@ -1,5 +1,4 @@
 using backend.Context;
-using backend.Data;
 using backend.Models;
 using backend.Repositories;
 using backend.Services;
@@ -123,7 +122,6 @@ using (var scope = app.Services.CreateScope())
         });
         db.SaveChanges();
     }
-    //await VetitesSeeder.SeedAsync(db);
 }
 
 if (app.Environment.IsDevelopment())

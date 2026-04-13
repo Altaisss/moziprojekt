@@ -8,7 +8,7 @@ import { refreshPage } from "../comps/Refresh.jsx";
 
 function AppTartalom() {
     const { felhasznalo, kijelentkezes } = useAuth();
-    const [oldal, setOldal] = useState("login"); // "login" | "register"
+    const [oldal, setOldal] = useState("login"); 
 
 
     if (!felhasznalo) {

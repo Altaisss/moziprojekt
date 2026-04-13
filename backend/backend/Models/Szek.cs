@@ -11,6 +11,6 @@ namespace backend.Models
         public char Oldal { get; set; }
         public int TeremId { get; set; }
         public Terem Terem { get; set; } = null!;
-        public ICollection<Foglalthely> Foglalthely { get; set; } = new List<Foglalthely>(); // Fix #6: field → property
+        public ICollection<Foglalthely> Foglalthely { get; set; } = new List<Foglalthely>(); 
     }
 }
